@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using DadosMongo.AcessaDados;
 using DadosMongo.Entidades.EntidadeCrud;
@@ -22,6 +23,17 @@ namespace TaxiApi.Controllers
             usua.DataCadastro = DateTime.Now;
             var a = new AcessaUsuario().Insert(usua);
         }
+        //[HttpPost]
+        //public void Post(Teste usua)
+        //{
+        //    var l = new List<Usuario>();
+        //    foreach (var usuario in usua.Usuario)
+        //    {
+        //        usuario.DataCadastro = DateTime.Now;
+        //        l.Add(usuario);
+        //    }
+        //    new AcessaUsuario().Insert(l);
+        //}
 
         public void Put()
         {
@@ -30,5 +42,10 @@ namespace TaxiApi.Controllers
         public void Delete(int id)
         {
         }
+    }
+
+    public class Teste
+    {
+        public List<Usuario> Usuario { get; set; }
     }
 }
