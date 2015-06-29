@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace DadosMongo.Comum
+namespace DadosMongo.Core
 {
-    public static class Comuns
+    public static class Core
     {
         public static string GetDescription(this Type type)
         {
