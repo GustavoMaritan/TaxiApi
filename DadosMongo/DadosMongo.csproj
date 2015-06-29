@@ -56,16 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcessaDados\AcessaTaxi.cs" />
-    <Compile Include="AcessaDados\AcessaUsuario.cs" />
-    <Compile Include="AcessaDados\BaseAcessaDados.cs" />
-    <Compile Include="AcessaDados\ConexaoBase.cs" />
-    <Compile Include="Comum\Comuns.cs" />
-    <Compile Include="Entidades\BaseEntity.cs" />
-    <Compile Include="Entidades\EntidadeRetorno\UsuarioLogin.cs" />
-    <Compile Include="Entidades\EntidadeRetorno\Taxi.cs" />
-    <Compile Include="Entidades\EntidadeRetorno\Telefones.cs" />
-    <Compile Include="Entidades\EntidadeCrud\Usuario.cs" />
+    <Compile Include="Repositories\AcessaTaxi.cs" />
+    <Compile Include="Repositories\AcessaUsuario.cs" />
+    <Compile Include="Repositories\BaseAcessaDados.cs" />
+    <Compile Include="Repositories\ConexaoBase.cs" />
+    <Compile Include="Core\Core.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Dto\UsuarioDto.cs" />
+    <Compile Include="Models\Dto\TaxiDto.cs" />
+    <Compile Include="Models\Dto\TelefoneDto.cs" />
+    <Compile Include="Models\Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

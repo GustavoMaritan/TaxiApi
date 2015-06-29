@@ -3,9 +3,9 @@
 namespace DadosMongo.Entidades.EntidadeRetorno
 {
     //[Description("Taxi")]
-    public class Taxi : BaseEntity
+    public class TaxiDto : BaseEntity
     {
         public string Descricao { get; set; }
-        public List<Telefones> Telefones { get; set; }
+        public List<TelefoneDto> Telefones { get; set; }
     }
 }

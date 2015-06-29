@@ -13,8 +13,7 @@ namespace DadosMongo.Entidades.EntidadeCrud
         public string RazaoSocial { get; set; }
         public bool Pago { get; set; }
         public int QtdeTelefones { get; set; }
-
         public string Descricao { get; set; }
-        public List<Telefones> Telefones { get; set; }
+        public IList<TelefoneDto> Telefones { get; set; }
     }
 }

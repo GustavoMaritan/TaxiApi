@@ -7,11 +7,11 @@ using Newtonsoft.Json;
 
 namespace DadosMongo.AcessaDados
 {
-    public class AcessaTaxi : ConexaoBase<Taxi>
+    public class AcessaTaxi : ConexaoBase<TaxiDto>
     {
-        public List<Taxi> GetAll()
+        public List<TaxiDto> GetAll()
         {
-            return GetCollection().FindAllAs<Taxi>()
+            return GetCollection().FindAllAs<TaxiDto>()
                 .SetFields(Fields
                     .Exclude("Login")
                     .Exclude("Senha")
@@ -23,7 +23,7 @@ namespace DadosMongo.AcessaDados
                 .ToList();
         }
 
-        public List<Taxi> GetUsuario()
+        public List<TaxiDto> GetUsuario()
         {
             var a = GetCollection().FindAllAs<BsonDocument>()
                 //.SetFields(Fields.Exclude("_id").Exclude("Telefones"))
@@ -34,7 +34,7 @@ namespace DadosMongo.AcessaDados
             //var ab = JsonConvert.DeserializeObject<List<Tes>>(a);
             var ab = JsonConvert.DeserializeObject<List<Xv1>>(a);
 
-            return new List<Taxi>();
+            return new List<TaxiDto>();
         }
     }
     public class Tes
