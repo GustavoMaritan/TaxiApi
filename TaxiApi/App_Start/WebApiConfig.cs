@@ -24,6 +24,12 @@ namespace TaxiApi.App_Start
             );
 
             config.Routes.MapHttpRoute(
+               name: "ApiByAction2",
+               routeTemplate: "api/{controller}/{action}/{id}",
+               defaults: new { id = RouteParameter.Optional }
+           );
+
+            config.Routes.MapHttpRoute(
                 name: "ApiPostByAction",
                 routeTemplate: "api/{controller}/{action}",
                 defaults: new { action = "Post" },

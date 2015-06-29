@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using DadosMongo.Comum;
 using DadosMongo.Entidades;
 using MongoDB.Driver;
 
@@ -14,7 +15,7 @@ namespace DadosMongo.AcessaDados
 
             _collection = server
                 .GetDatabase(ConfigurationManager.AppSettings["BdName"])
-                .GetCollection("Taxi2"); //typeof(T).GetDescription());
+                .GetCollection(typeof(T).GetDescription());
         }
 
         public MongoCollection GetCollection()

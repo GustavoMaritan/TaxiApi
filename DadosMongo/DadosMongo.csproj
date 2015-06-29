@@ -56,16 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcessaDados\AcessaAdmins.cs" />
+    <Compile Include="AcessaDados\AcessaCoperativa.cs" />
     <Compile Include="AcessaDados\AcessaTaxi.cs" />
-    <Compile Include="AcessaDados\AcessaUsuario.cs" />
     <Compile Include="AcessaDados\BaseAcessaDados.cs" />
     <Compile Include="AcessaDados\ConexaoBase.cs" />
     <Compile Include="Comum\Comuns.cs" />
+    <Compile Include="DataModel\Coperativa\ListCoperativa.cs" />
+    <Compile Include="Entidades\BaseEntityManut.cs" />
     <Compile Include="Entidades\BaseEntity.cs" />
-    <Compile Include="Entidades\EntidadeRetorno\UsuarioLogin.cs" />
-    <Compile Include="Entidades\EntidadeRetorno\Taxi.cs" />
-    <Compile Include="Entidades\EntidadeRetorno\Telefones.cs" />
-    <Compile Include="Entidades\EntidadeCrud\Usuario.cs" />
+    <Compile Include="Entidades\Entidade\Administrador.cs" />
+    <Compile Include="Entidades\Entidade\Coperativa.cs" />
+    <Compile Include="Entidades\Entidade\Telefones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
