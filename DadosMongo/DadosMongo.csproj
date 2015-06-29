@@ -61,10 +61,9 @@
     <Compile Include="AcessaDados\AcessaTaxi.cs" />
     <Compile Include="AcessaDados\BaseAcessaDados.cs" />
     <Compile Include="AcessaDados\ConexaoBase.cs" />
-    <Compile Include="Comum\Comuns.cs" />
     <Compile Include="DataModel\Coperativa\ListCoperativa.cs" />
-    <Compile Include="Entidades\BaseEntityManut.cs" />
     <Compile Include="Entidades\BaseEntity.cs" />
+    <Compile Include="Entidades\BaseEntityManut.cs" />
     <Compile Include="Entidades\Entidade\Administrador.cs" />
     <Compile Include="Entidades\Entidade\Coperativa.cs" />
     <Compile Include="Entidades\Entidade\Telefones.cs" />
@@ -73,7 +72,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Comum\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
