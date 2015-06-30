@@ -10,8 +10,7 @@ namespace TaxiApi.Controllers
         [HttpGet]
         public dynamic Get(string login, string senha)
         {
-            var list = new AcessaAdmins()
-                .GetAdmLogado(login, senha);
+            var list = new AcessaAdmins().GetAdmLogado(login, senha);
 
             if (list != null)
                 return Json(list);
@@ -20,10 +19,11 @@ namespace TaxiApi.Controllers
         }
 
         [HttpPost]
-        public void Post(Administrador usua)
+        public IHttpActionResult Post(Administrador usua)
         {
             usua.DataCad = DateTime.Now;
-            var a = new AcessaAdmins().Insert(usua);
+            var user = new AcessaAdmins().Insert(usua);
+            return Ok(Json(user));
         }
     }
 }

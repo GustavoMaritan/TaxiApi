@@ -6,10 +6,10 @@ using MongoDB.Bson;
 
 namespace TaxiApi.Controllers
 {
+    [RoutePrefix("api/[controller]")]
     public class CoperativaController : ApiController
     {
         [HttpGet]
-        [Route("api/Coperativa/")]
         public dynamic Get()
         {
             var list = new AcessaCoperativa().GetAll();
@@ -17,7 +17,7 @@ namespace TaxiApi.Controllers
         }
 
         [HttpGet]
-        [Route("api/Coperativa/{id}")]
+        [Route("{id}")]
         public dynamic Get(string id)
         {
             var cop = new AcessaCoperativa().GetId(new ObjectId(id));
@@ -25,12 +25,12 @@ namespace TaxiApi.Controllers
         }
 
         [HttpPost]
-        [Route("api/Coperativa/")]
-        public void Post(Coperativa usua)
+        public IHttpActionResult Post(Coperativa usua)
         {
             usua.DataCad = DateTime.Now;
             usua.UsuarioCad = new ObjectId(usua.UsuarioId);
-            var a = new AcessaCoperativa().Insert(usua);
+            var user = new AcessaCoperativa().Insert(usua);
+            return Ok(Json(user));
         }
     }
 

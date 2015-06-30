@@ -10,10 +10,10 @@ namespace DadosMongo.AcessaDados
 {
     public class BaseAcessaDados<T> : ConexaoBase<T> where T : BaseEntity
     {
-        public ObjectId Insert(T entidade)
+        public T Insert(T entidade)
         {
             GetCollection().Insert(entidade);
-            return entidade.Id;
+            return entidade;
         }
 
         public void Insert(List<T> entidades)
@@ -21,9 +21,10 @@ namespace DadosMongo.AcessaDados
             GetCollection().InsertBatch<T>(entidades);
         }
 
-        public void Updade(T entidade)
+        public T Updade(T entidade)
         {
             GetCollection().Save(entidade);
+            return entidade;
         }
 
         public void Update(List<T> entities)
