@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
-using DadosMongo.AcessaDados;
-using DadosMongo.Entidades.Entidade;
-using MongoDB.Bson;
+using DadosSql.Entidades;
+using DadosSql.Repositorios;
 
 namespace TaxiApi.Controllers
 {
@@ -12,25 +12,57 @@ namespace TaxiApi.Controllers
         [HttpGet]
         public dynamic Get()
         {
-            var list = new AcessaCoperativa().GetAll();
-            return Json(list);
+            //var a = new Coperativa
+            //{
+            //    Ativo = true,
+            //    Senha = "123456",
+            //    DataCadastro = DateTime.Now,
+            //    Descricao = "Coperativa2",
+            //    Controles = new List<ControleMensal>
+            //    {
+            //        new ControleMensal
+            //        {
+            //            DataContrato = DateTime.Now,
+            //            DataVencimento = DateTime.Now,
+            //            Recebido = false,
+            //            Valor = 50
+            //        }
+            //    },
+            //    Telefones = new List<Telefone>
+            //    {
+            //        new Telefone
+            //        {
+            //            Ddd = 16,
+            //            Numero = 37231223,
+            //            Ramal = 44,
+            //        }
+            //    }
+            //};
+            //var ret = new CoperativaRepository().Post(a);
+            var ret = new CoperativaRepository().GetAll();
+
+            //var list = new AcessaCoperativa().GetAll();
+            //return Json(list);
+            return null;
         }
 
         [HttpGet]
         [Route("{id}")]
         public dynamic Get(string id)
         {
-            var cop = new AcessaCoperativa().GetId(new ObjectId(id));
-            return Json(cop);
+            //var cop = new AcessaCoperativa().GetId(new ObjectId(id));
+            //return Json(cop);
+            return null;
         }
 
         [HttpPost]
         public IHttpActionResult Post(Coperativa usua)
         {
-            usua.DataCad = DateTime.Now;
-            usua.UsuarioCad = new ObjectId(usua.UsuarioId);
-            var user = new AcessaCoperativa().Insert(usua);
-            return Ok(Json(user));
+            //usua.DataCad = DateTime.Now;
+            //usua.UsuarioCad = new ObjectId(usua.UsuarioId);
+            //var user = new AcessaCoperativa().Insert(usua);
+            //return Ok(Json(user));
+            return null;
         }
     }
 

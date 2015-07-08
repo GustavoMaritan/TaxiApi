@@ -39,6 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
@@ -160,6 +167,10 @@
     <ProjectReference Include="..\DadosMongo\DadosMongo.csproj">
       <Project>{623bfdd4-16f0-4a32-88ca-262e7c551489}</Project>
       <Name>DadosMongo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DadosSql\DadosSql.csproj">
+      <Project>{55c3afb6-4c3b-4ab5-aaaa-da4a54f5a0fb}</Project>
+      <Name>DadosSql</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
