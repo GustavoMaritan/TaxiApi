@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\BaseRepository.cs" />
     <Compile Include="Repositorios\CoperativaRepository.cs" />
+    <Compile Include="Repositorios\TelefoneRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

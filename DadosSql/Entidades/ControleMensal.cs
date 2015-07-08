@@ -10,6 +10,6 @@ namespace DadosSql.Entidades
         public decimal Valor { get; set; }
         public bool Recebido { get; set; }
 
-        public Coperativa Coperativa { get; set; }
+        public virtual Coperativa Coperativa { get; set; }
     }
 }

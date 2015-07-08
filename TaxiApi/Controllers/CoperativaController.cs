@@ -40,6 +40,7 @@ namespace TaxiApi.Controllers
             //};
             //var ret = new CoperativaRepository().Post(a);
             var ret = new CoperativaRepository().GetAll();
+            var ret2 = new TelefoneRepository().GetAll();
 
             //var list = new AcessaCoperativa().GetAll();
             //return Json(list);
@@ -47,7 +48,6 @@ namespace TaxiApi.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
         public dynamic Get(string id)
         {
             //var cop = new AcessaCoperativa().GetId(new ObjectId(id));

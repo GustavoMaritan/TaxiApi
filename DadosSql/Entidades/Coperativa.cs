@@ -10,7 +10,7 @@ namespace DadosSql.Entidades
         public DateTime DataCadastro { get; set; }
         public string Senha { get; set; }
 
-        public IList<Telefone> Telefones { get; set; }
-        public IList<ControleMensal> Controles { get; set; }
+        public virtual IList<Telefone> Telefones { get; set; }
+        public virtual IList<ControleMensal> Controles { get; set; }
     }
 }
