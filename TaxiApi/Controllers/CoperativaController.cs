@@ -11,12 +11,21 @@ namespace TaxiApi.Controllers
         [HttpGet]
         public dynamic Get()
         {
+            #region ☼ Gerar Registro ☼
             //var a = new Coperativa
             //{
             //    Ativo = true,
             //    Senha = "123456",
             //    DataCadastro = DateTime.Now,
-            //    Descricao = "Coperativa2",
+            //    Descricao = "Coperativa3",
+            //    Bairro = "Centro",
+            //    RazaoSocial = "a",
+            //    Numero = 12,
+            //    QtdeTelefones = 5,
+            //    Login = "gus",
+            //    Endereco = "Rua",
+            //    Cnpj = "123",
+            //    Cep = 123,
             //    Controles = new List<ControleMensal>
             //    {
             //        new ControleMensal
@@ -34,11 +43,25 @@ namespace TaxiApi.Controllers
             //            Ddd = 16,
             //            Numero = 37231223,
             //            Ramal = 44,
-            //        }
+            //        },
+            //        new Telefone
+            //        {
+            //            Ddd = 16,
+            //            Numero = 22222222,
+            //            Ramal = 44,
+            //        },
+            //        new Telefone
+            //        {
+            //            Ddd = 16,
+            //            Numero = 33333333,
+            //            Ramal = 44,
+            //        },
             //    }
             //};
+            //var ret1 = new CoperativaRepository().Post(a); 
+            #endregion
+
             var ret = new CoperativaRepository().GetAll();
-            var ret2 = new TelefoneRepository().GetAll();
 
             return Json(ret, new JsonSerializerSettings()
             {
@@ -64,16 +87,5 @@ namespace TaxiApi.Controllers
             //return Ok(Json(user));
             return null;
         }
-    }
-
-    public class Teste
-    {
-        public string Login { get; set; }
-        public string Senha { get; set; }
-        public string Cnpj { get; set; }
-        public string RazaoSocial { get; set; }
-        public string Pago { get; set; }
-        public string QtdeTelefones { get; set; }
-        public string Descricao { get; set; }
     }
 }
