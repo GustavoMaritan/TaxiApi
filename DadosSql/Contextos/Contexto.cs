@@ -10,7 +10,7 @@ namespace DadosSql.Contextos
         public Contexto()
             : base(@"Data Source=(LocalDb)\v11.0;Initial Catalog = Coperativas;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
         {
-            Configuration.LazyLoadingEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Coperativa> DbCoperativa { get; set; }
