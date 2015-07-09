@@ -10,8 +10,8 @@ namespace DadosSql.Mapeamento
             HasKey(x => x.Id);
 
             HasRequired(c => c.Coperativa)
-              .WithMany()
-              .HasForeignKey(x => x.CoperativaId);
+                .WithMany(c => c.Controles)
+                .HasForeignKey(c => c.CoperativaId);
 
             Property(x => x.DataContrato).IsRequired(); 
             Property(x => x.DataVencimento).IsRequired(); 
