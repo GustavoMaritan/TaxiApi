@@ -58,6 +58,7 @@
     <Compile Include="Mapeamento\TelefoneMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AplicativoRepository.cs" />
     <Compile Include="Repositorios\BaseRepository.cs" />
     <Compile Include="Repositorios\CoperativaRepository.cs" />
     <Compile Include="Repositorios\TelefoneRepository.cs" />
