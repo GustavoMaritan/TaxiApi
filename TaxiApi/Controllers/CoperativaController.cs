@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using DadosSql.Entidades;
 using DadosSql.Repositorios;
+using Newtonsoft.Json;
 
 namespace TaxiApi.Controllers
 {
@@ -38,13 +37,14 @@ namespace TaxiApi.Controllers
             //        }
             //    }
             //};
-            //var ret = new CoperativaRepository().Post(a);
             var ret = new CoperativaRepository().GetAll();
             var ret2 = new TelefoneRepository().GetAll();
 
-            //var list = new AcessaCoperativa().GetAll();
-            //return Json(list);
-            return null;
+            return Json(ret, new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
         }
 
         [HttpGet]
