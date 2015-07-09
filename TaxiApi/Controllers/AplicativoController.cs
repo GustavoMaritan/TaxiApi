@@ -67,6 +67,5 @@ namespace TaxiApi.Controllers
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             });
         }
-
     }
 }

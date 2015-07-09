@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexto\Contexto.cs" />
+    <Compile Include="Contextos\Contexto.cs" />
     <Compile Include="DataModel\CoperativaApp.cs" />
     <Compile Include="DataModel\TelefoneApp.cs" />
     <Compile Include="Entidades\BaseEntity.cs" />

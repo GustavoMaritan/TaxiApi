@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using DadosSql.Entidades;
 using DadosSql.Mapeamento;
 
-namespace DadosSql.Contexto
+namespace DadosSql.Contextos
 {
     public class Contexto : DbContext
     {

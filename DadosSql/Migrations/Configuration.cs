@@ -1,3 +1,5 @@
+using DadosSql.Contextos;
+
 namespace DadosSql.Migrations
 {
     using System;
@@ -5,14 +7,14 @@ namespace DadosSql.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DadosSql.Contexto.Contexto>
+    internal sealed class Configuration : DbMigrationsConfiguration<Contexto>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(DadosSql.Contexto.Contexto context)
+        protected override void Seed(Contexto context)
         {
             //  This method will be called after migrating to the latest version.
 

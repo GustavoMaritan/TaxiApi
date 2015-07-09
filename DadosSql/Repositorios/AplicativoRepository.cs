@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DadosSql.Contextos;
 using DadosSql.DataModel;
 
 namespace DadosSql.Repositorios
@@ -8,7 +9,7 @@ namespace DadosSql.Repositorios
     {
         public List<CoperativaApp> GetAll()
         {
-            using (var ct = new Contexto.Contexto())
+            using (var ct = new Contexto())
             {
                 return ct.DbCoperativa
                     .Select(x => new CoperativaApp
