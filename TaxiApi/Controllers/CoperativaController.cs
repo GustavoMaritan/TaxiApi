@@ -14,12 +14,9 @@ namespace TaxiApi.Controllers
         public dynamic Get()
         {
             //var codCoper = GerarRegistro();
-            var ret = new CoperativaRepository().GetAll();
-            
-            
-            //var ret1 = new CoperativaRepository().GetGrid();
+            var ret1 = new CoperativaRepository().GetGrid();
 
-            return Json(ret, new JsonSerializerSettings()
+            return Json(ret1, new JsonSerializerSettings()
             {
                 NullValueHandling = NullValueHandling.Ignore,
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
