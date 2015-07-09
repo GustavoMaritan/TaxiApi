@@ -1,0 +1,50 @@
+﻿<div class="container">
+    <div class="panel panel-primary" style="min-width: 383px;">
+        <div class="panel-heading">
+            <h3 class="panel-title">Cadastrar de Cooperativa</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-12">
+                {{model.UsuarioId}}
+                <form class="form-horizontal" ng-submit="post()" method="POST">
+                    <div class="form-group">
+                        <label class="control-label" for="txtRazaoSocial">Razão Social</label>
+                        <input class="form-control" id="txtRazaoSocial" type="text" ng-model="model.RazaoSocial" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtNomeFant">Nome Fantasia</label>
+                        <input class="form-control" id="txtNomeFant" type="text" ng-model="model.NomeFantasia" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtCnpj">Cnpj</label>
+                        <input class="form-control" id="txtCnpj" type="text" ng-model="model.Cnpj" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtQtdeTelefones">Quantidade Telefones</label>
+                        <input class="form-control" id="txtQtdeTelefones" type="text" ng-model="model.QtdeTelefones" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtDataVencimento">Data de Vencimento</label>
+                        <input class="form-control" id="txtDataVencimento" type="text" ng-model="model.DataVencimento" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="model.Pago">Pagamento Recebido
+                            </label>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <a href="#/Coperativa/Buscar" class="btn btn-sm btn-danger">
+                            <i class="fa fa-remove"></i>Cancelar
+                        </a>
+                        <button class="btn btn-sm btn-success" type="submit">
+                            <i class="fa fa-check"></i>Cadastrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

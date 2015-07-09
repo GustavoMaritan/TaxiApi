@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DadosSql.Contextos;
-using DadosSql.DataModel;
+using DadosSql.DataModel.Aplicativo;
 
 namespace DadosSql.Repositorios
 {

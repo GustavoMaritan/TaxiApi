@@ -10,11 +10,13 @@ namespace DadosSql.Contextos
         public Contexto()
             : base(@"Data Source=(LocalDb)\v11.0;Initial Catalog = Coperativas;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
         {
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Coperativa> DbCoperativa { get; set; }
         public DbSet<Telefone> DbTelefone { get; set; }
         public DbSet<ControleMensal> DbControleMensal { get; set; }
+        public DbSet<Administrador> DbAdministrador { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,6 +33,7 @@ namespace DadosSql.Contextos
             modelBuilder.Configurations.Add(new CoperativaMap());
             modelBuilder.Configurations.Add(new TelefoneMap());
             modelBuilder.Configurations.Add(new ControleMensalMap());
+            modelBuilder.Configurations.Add(new AdministradorMap());
         }
     }
 }

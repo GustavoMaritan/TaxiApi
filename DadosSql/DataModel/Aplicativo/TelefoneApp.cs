@@ -1,4 +1,4 @@
-﻿namespace DadosSql.DataModel
+﻿namespace DadosSql.DataModel.Aplicativo
 {
     public class TelefoneApp
     {

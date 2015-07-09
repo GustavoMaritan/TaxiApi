@@ -118,6 +118,15 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Toast">
+      <HintPath>..\packages\Toaster.2.1.10716.0\lib\net45\Toast.exe</HintPath>
+    </Reference>
+    <Reference Include="Toaster">
+      <HintPath>..\packages\Toaster.2.1.10716.0\lib\net45\Toaster.dll</HintPath>
+    </Reference>
+    <Reference Include="ToolBelt">
+      <HintPath>..\packages\Toaster.2.1.10716.0\lib\net45\ToolBelt.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -129,7 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Aplicativo\" />
+    <Folder Include="Coperativa\Cadastro\App\Directives\" />
+    <Folder Include="Coperativa\Login\App\Directives\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -144,7 +154,109 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Comum\content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Comum\content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Comum\content\bootstrap\bootstrap.css" />
+    <Content Include="Comum\content\bootstrap\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\cerulean\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\cerulean\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\cerulean\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\cosmo\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\cosmo\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\cosmo\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\cyborg\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\cyborg\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\cyborg\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\darkly\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\darkly\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\darkly\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\flatly\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\flatly\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\flatly\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Comum\content\bootswatch\journal\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\journal\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\journal\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\lumen\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\lumen\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\lumen\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\paper\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\paper\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\paper\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\readable\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\readable\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\readable\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\sandstone\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\sandstone\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\sandstone\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\simplex\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\simplex\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\simplex\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\slate\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\slate\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\slate\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\spacelab\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\spacelab\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\spacelab\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\superhero\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\superhero\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\superhero\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\united\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\united\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\united\thumbnail.png" />
+    <Content Include="Comum\content\bootswatch\yeti\bootstrap.css" />
+    <Content Include="Comum\content\bootswatch\yeti\bootstrap.min.css" />
+    <Content Include="Comum\content\bootswatch\yeti\thumbnail.png" />
+    <Content Include="Comum\content\css\agenda.css" />
+    <Content Include="Comum\content\css\bootstrap.min.css" />
+    <Content Include="Comum\content\css\cadastro.css" />
+    <Content Include="Comum\content\css\font-awesome.min.css" />
+    <Content Include="Comum\content\css\login.css" />
+    <Content Include="Comum\content\css\sliders.css" />
+    <Content Include="Comum\content\css\style.css" />
+    <Content Include="Comum\content\css\ui-buttons.css" />
+    <Content Include="Comum\content\css\ui-notifications.css" />
+    <Content Include="Comum\content\fiveico.png" />
+    <Content Include="Comum\content\toastr\toastr.css" />
+    <Content Include="Comum\content\toastr\toastr.min.css" />
+    <Content Include="Comum\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Comum\Scripts\angular-locale_pt-br.js" />
+    <Content Include="Comum\Scripts\angular-mocks.js" />
+    <Content Include="Comum\Scripts\angular-route.js" />
+    <Content Include="Comum\Scripts\angular-route.min.js" />
+    <Content Include="Comum\Scripts\angular-sanitize.min.js" />
+    <Content Include="Comum\Scripts\angular.js" />
+    <Content Include="Comum\Scripts\angular.min.js" />
+    <Content Include="Comum\Scripts\bootstrap.js" />
+    <Content Include="Comum\Scripts\bootstrap.min.js" />
+    <Content Include="Comum\Scripts\Comum.js" />
+    <None Include="Comum\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Comum\Scripts\jquery-1.9.1.js" />
+    <Content Include="Comum\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Comum\Scripts\jquery.mask.min.js" />
+    <Content Include="Comum\Scripts\ng-infinite-scroll.min.js" />
+    <Content Include="Comum\Scripts\npm.js" />
+    <Content Include="Comum\Scripts\toastr.js" />
+    <Content Include="Comum\Scripts\toastr.min.js" />
+    <Content Include="Comum\Scripts\ui-bootstrap-tpls-0.13.0.min.js" />
+    <Content Include="Coperativa\Cadastro\App\app.js" />
+    <Content Include="Coperativa\Cadastro\App\Config\routes.js" />
+    <Content Include="Coperativa\Cadastro\App\Controller\CoperativaController.js" />
+    <Content Include="Coperativa\Cadastro\App\Controller\headerController.js" />
+    <Content Include="Coperativa\Cadastro\App\Service\coperativaService.js" />
+    <Content Include="Coperativa\Cadastro\index.html" />
+    <Content Include="Coperativa\Cadastro\view\Crud\Cadastro.html" />
+    <Content Include="Coperativa\Cadastro\view\Crud\Editar.html" />
+    <Content Include="Coperativa\Cadastro\view\Crud\Grid.html" />
+    <Content Include="Coperativa\Cadastro\view\header.html" />
+    <Content Include="Coperativa\Login\App\app.js" />
+    <Content Include="Coperativa\Login\App\Config\routes.js" />
+    <Content Include="Coperativa\Login\App\Controller\loginController.js" />
+    <Content Include="Coperativa\Login\App\Service\loginService.js" />
+    <Content Include="Coperativa\Login\index.html" />
     <Content Include="Global.asax" />
+    <Content Include="Icon.png" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -161,6 +273,90 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Comum\content\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="Comum\content\bootstrap\bootstrap.css.map" />
+    <Content Include="Comum\content\bootswatch\.bower.json" />
+    <Content Include="Comum\content\bootswatch\bower.json" />
+    <Content Include="Comum\content\bootswatch\cerulean\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\cerulean\variables.less" />
+    <Content Include="Comum\content\bootswatch\cerulean\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\cerulean\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\cosmo\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\cosmo\variables.less" />
+    <Content Include="Comum\content\bootswatch\cosmo\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\cosmo\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\cyborg\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\cyborg\variables.less" />
+    <Content Include="Comum\content\bootswatch\cyborg\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\cyborg\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\darkly\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\darkly\variables.less" />
+    <Content Include="Comum\content\bootswatch\darkly\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\darkly\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\flatly\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\flatly\variables.less" />
+    <Content Include="Comum\content\bootswatch\flatly\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\flatly\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Comum\content\bootswatch\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Comum\content\bootswatch\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Comum\content\bootswatch\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Comum\content\bootswatch\journal\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\journal\variables.less" />
+    <Content Include="Comum\content\bootswatch\journal\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\journal\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\LICENSE" />
+    <Content Include="Comum\content\bootswatch\lumen\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\lumen\variables.less" />
+    <Content Include="Comum\content\bootswatch\lumen\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\lumen\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\paper\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\paper\variables.less" />
+    <Content Include="Comum\content\bootswatch\paper\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\paper\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\readable\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\readable\variables.less" />
+    <Content Include="Comum\content\bootswatch\readable\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\readable\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\README.md" />
+    <Content Include="Comum\content\bootswatch\sandstone\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\sandstone\variables.less" />
+    <Content Include="Comum\content\bootswatch\sandstone\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\sandstone\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\simplex\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\simplex\variables.less" />
+    <Content Include="Comum\content\bootswatch\simplex\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\simplex\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\slate\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\slate\variables.less" />
+    <Content Include="Comum\content\bootswatch\slate\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\slate\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\spacelab\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\spacelab\variables.less" />
+    <Content Include="Comum\content\bootswatch\spacelab\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\spacelab\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\superhero\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\superhero\variables.less" />
+    <Content Include="Comum\content\bootswatch\superhero\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\superhero\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\united\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\united\variables.less" />
+    <Content Include="Comum\content\bootswatch\united\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\united\_variables.scss" />
+    <Content Include="Comum\content\bootswatch\yeti\bootswatch.less" />
+    <Content Include="Comum\content\bootswatch\yeti\variables.less" />
+    <Content Include="Comum\content\bootswatch\yeti\_bootswatch.scss" />
+    <Content Include="Comum\content\bootswatch\yeti\_variables.scss" />
+    <Content Include="Comum\content\toastr\toastr.less" />
+    <Content Include="Comum\content\toastr\toastr.scss" />
+    <Content Include="Comum\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Comum\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Comum\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Comum\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Comum\Scripts\angular-route.min.js.map" />
+    <Content Include="Comum\Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Comum\Scripts\angular.min.js.map" />
+    <Content Include="Comum\Scripts\jquery-1.9.1.min.map" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>

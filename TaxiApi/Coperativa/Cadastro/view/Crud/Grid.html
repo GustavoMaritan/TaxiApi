@@ -1,0 +1,107 @@
+﻿<style>
+    .divRod {
+        background-color: rgb(234, 234, 234);
+        min-height: 38px !important;
+    }
+
+    .filtroBusca {
+        cursor: pointer;
+        min-width: 383px;
+    }
+</style>
+<div class="container">
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="Filtros de Busca" class="filtroBusca" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+            <div class="form-group">
+                <label class="control-label" for="inputDefault">Default input</label>
+                <input type="text" class="form-control" id="inputDefault">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputDefault">Default input</label>
+                <input type="text" class="form-control" id="inputDefault">
+            </div>
+            <div class="text-right">
+                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-default">Default</a>
+                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-primary">Primary</a>
+                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-success">Success</a>
+                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-info">Info</a>
+                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-warning">Warning</a>
+                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-danger">Danger</a>
+            </div>
+        </accordion-group>
+    </accordion>
+    <div class="panel panel-primary" style="min-width: 383px;">
+        <div class="panel-heading">
+            <h3 class="panel-title">Lista de Cooperativas</h3>
+        </div>
+        <div class="panel-body">
+            <div class="text-right">
+                Registros por página
+                <select ng-model="numPerPage" ng-change="setNumPerPage(numPerPage)">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <table class="table table-striped table-hover" style="margin-bottom: 5px">
+                <thead>
+                    <tr>
+                        <th class="text-center"><a href="" ng-click="ordenar('Descricao')">Nome Fantasia</a></th>
+                        <th class="text-center col-md-1"><a href="" ng-click="ordenar('QtdeTelefones')">Qtde Telefones</a></th>
+                        <th class="text-center col-md-1"><a href="" ng-click="ordenar('Recebido')">Recebido</a></th>
+                        <th class="text-center col-md-1"><a href="" ng-click="ordenar('DataVencimento')">Qtde Telefones</a></th>
+                        <th class="text-center col-md-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Filtrar por descrição"
+                                   ng-model="filter" />
+                        </td>
+                    </tr>
+                    <tr ng-repeat="todo in filteredTodos | filter: filter | orderBy: order">
+                        <td style="padding-top: 15px;">{{ todo.Descricao }}</td>
+                        <td style="padding-top: 15px;" class="text-center">{{ todo.QtdeTelefones }}</td>
+                        <td style="padding-top: 15px;" class="text-center">{{ todo.Recebido ? "Sim" : "Não"}}</td>
+                        <td style="padding-top: 15px;" class="text-center">{{ mascaraData(todo.DataVencimento) }}</td>
+                        <td class="text-center">
+                            <a href="#/Coperativa/Editar/{{todo.Id}}" class="btn btn-sm btn-success" title="Editar">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                            <button class="btn btn-sm btn-danger" ng-click="remover(todo)" title="Excluir">
+                                <i class="fa fa-remove"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-sm-12 divRod">
+                <div class="col-sm-3 text-left" style="padding-top: 9px;">
+                    <strong>Page: {{currentPage}} / {{totalPaginas}}</strong>
+                </div>
+                <div class="col-sm-6 text-center" style="height: 28px; padding-top: 4px;">
+                    <pagination ng-model="currentPage"
+                                total-items="todos.length"
+                                max-size="maxSize"
+                                class="pagination-sm"
+                                ng-change="pageChanged()"
+                                items-per-page="numPerPage"
+                                last-text=">>"
+                                next-text=">"
+                                first-text="<<"
+                                previous-text="<"
+                                direction-links="true"
+                                boundary-links="true"
+                                style="margin: 0">
+                    </pagination>
+                </div>
+                <div class="col-sm-3 text-right" style="padding-top: 9px;">
+                    <strong>{{ remaining() }} Registro(s)</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

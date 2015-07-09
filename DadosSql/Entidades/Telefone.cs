@@ -7,6 +7,6 @@
         public int Numero { get; set; }
         public short? Ramal { get; set; }
 
-        public Coperativa Coperativa { get; set; }
+        public virtual Coperativa Coperativa { get; set; }
     }
 }

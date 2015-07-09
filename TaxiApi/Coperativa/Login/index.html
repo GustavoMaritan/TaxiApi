@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html class="no-js" ng-app="login">
+<head>
+    <title>Cooperativa</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="icon" href="../../Comum/content/fiveico.png" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
+
+    <link href="../../Comum/content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Comum/content/css/style.css" rel="stylesheet" />
+    <link href="../../Comum/content/toastr/toastr.min.css" rel="stylesheet" />
+
+    <script src="../../Comum/Scripts/jquery-1.9.1.min.js"></script>
+    <!--Angular-->
+    <script src="../../Comum/Scripts/angular.min.js"></script>
+    <script src="../../Comum/Scripts/angular-route.min.js"></script>
+    <script src="../../Comum/Scripts/ng-infinite-scroll.min.js"></script>
+    <script src="../../Comum/Scripts/angular-locale_pt-br.js"></script>
+    <!-- APP -->
+    <script src="App/app.js"></script>
+    <script src="App/Config/routes.js"></script>
+    <script src="App/Controller/loginController.js"></script>
+    <script src="App/Service/loginService.js"></script>
+    <!-- UTIL -->
+    <script src="../../Comum/Scripts/toastr.js"></script>
+</head>
+
+<body class="account-bg">
+    <div class="account-wrapper">
+        <div class="account-body" ng-controller="loginController">
+            <h3 class="account-body-title">Bem-vindo em nosso Sistema.</h3>
+            <h5 class="account-body-subtitle">Faça login para obter acesso..</h5>
+            <form class="form account-form">
+                <div class="form-group" ng-class="nome == '' ? 'has-error' : 'has-success'">
+                    <label for="NomeUsuario" class="">Login</label>
+                    <input id="NomeUsuario" type="text" class="form-control" placeholder="Nome" tabindex="1" ng-model="nome">
+                </div>
+                <div class="form-group" ng-class="senha == '' ? 'has-error' : 'has-success'">
+                    <label for="IdUsuario" class="">Senha</label>
+                    <input id="IdUsuario" type="password" class="form-control" placeholder="Id do Usuario" tabindex="1" ng-model="senha">
+                </div>
+                <div class="form-group">
+                    <button id="btnEntrar" type="button" ng-click="get()" class="btn btn-primary btn-block btn-lg" tabindex="4">
+                        Entrar &nbsp; <i class="fa fa-play-circle"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,27 +1,38 @@
-﻿using System;
-using System.Web.Http;
+﻿using System.Web.Http;
+using DadosSql.Entidades;
+using DadosSql.Repositorios;
 
 namespace TaxiApi.Controllers
 {
+    [RoutePrefix("api/[controller]")]
     public class AdminController : ApiController
     {
-        //[HttpGet]
-        //public dynamic Get(string login, string senha)
-        //{
-        //    //var list = new AcessaAdmins().GetAdmLogado(login, senha);
+        [HttpGet]
+        public dynamic Get(string login, string senha)
+        {
+            var repository = new AdministradorRepository();
 
-        //    //if (list != null)
-        //    //    return Json(list);
+            //var a = repository.Post(new Administrador
+            //{
+            //    Email = "gustavo@gmail.com",
+            //    Login = "gustavo",
+            //    Senha = "123456",
+            //    Nome = "Gustavo"
+            //});
 
-        //    //return Json(new { error = "Usuário não encontrado." });
-        //}
+            var admin = repository.AdminLogado(login, senha);
 
-        //[HttpPost]
-        //public IHttpActionResult Post(Administrador usua)
-        //{
-        //    usua.DataCad = DateTime.Now;
-        //    var user = new AcessaAdmins().Insert(usua);
-        //    return Ok(Json(user));
-        //}
+            if (admin != null)
+                return Json(admin);
+
+            return Json(new { error = "Usuário não encontrado." });
+        }
+
+        [HttpPost]
+        public IHttpActionResult Post(Administrador usua)
+        {
+            var user = new AdministradorRepository().Post(usua);
+            return Ok(Json(user));
+        }
     }
 }

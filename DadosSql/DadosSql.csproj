@@ -47,19 +47,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contextos\Contexto.cs" />
-    <Compile Include="DataModel\CoperativaApp.cs" />
-    <Compile Include="DataModel\TelefoneApp.cs" />
+    <Compile Include="DataModel\Aplicativo\CoperativaApp.cs" />
+    <Compile Include="DataModel\Aplicativo\TelefoneApp.cs" />
+    <Compile Include="DataModel\Coperativa\CoperativaGrid.cs" />
+    <Compile Include="Entidades\Administrador.cs" />
     <Compile Include="Entidades\BaseEntity.cs" />
     <Compile Include="Entidades\ControleMensal.cs" />
     <Compile Include="Entidades\Coperativa.cs" />
     <Compile Include="Entidades\Telefone.cs" />
+    <Compile Include="Mapeamento\AdministradorMap.cs" />
     <Compile Include="Mapeamento\ControleMensalMap.cs" />
     <Compile Include="Mapeamento\CoperativaMap.cs" />
     <Compile Include="Mapeamento\TelefoneMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AdministradorRepository.cs" />
     <Compile Include="Repositorios\AplicativoRepository.cs" />
     <Compile Include="Repositorios\BaseRepository.cs" />
+    <Compile Include="Repositorios\ControleMensalRepository.cs" />
     <Compile Include="Repositorios\CoperativaRepository.cs" />
     <Compile Include="Repositorios\TelefoneRepository.cs" />
   </ItemGroup>
