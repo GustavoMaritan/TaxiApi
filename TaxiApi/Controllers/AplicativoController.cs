@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Configuration;
+using System.Web.Http;
 using DadosSql.Repositorios;
 using Newtonsoft.Json;
 

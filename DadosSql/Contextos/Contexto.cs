@@ -1,5 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System.Configuration;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Diagnostics;
 using DadosSql.Entidades;
 using DadosSql.Mapeamento;
 
@@ -8,9 +10,9 @@ namespace DadosSql.Contextos
     public class Contexto : DbContext
     {
         public Contexto()
-            : base(@"Data Source=(LocalDb)\v11.0;Initial Catalog = Coperativas;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
+            : base(ConfigurationManager.ConnectionStrings["ConnectionSQL"].ConnectionString)
         {
-            //Configuration.LazyLoadingEnabled = false;
+            
         }
 
         public DbSet<Coperativa> DbCoperativa { get; set; }

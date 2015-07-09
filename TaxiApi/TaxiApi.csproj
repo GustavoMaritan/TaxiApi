@@ -358,6 +358,7 @@
     <Content Include="Comum\Scripts\angular.min.js.map" />
     <Content Include="Comum\Scripts\jquery-1.9.1.min.map" />
     <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\desenv.pubxml" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
