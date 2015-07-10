@@ -34,5 +34,10 @@ namespace TaxiApi.Controllers
             var user = new AdministradorRepository().Post(usua);
             return Ok(Json(user));
         }
+
+        public dynamic Get()
+        {
+            return Json(new {nome = "Esteves"});
+        }
     }
 }

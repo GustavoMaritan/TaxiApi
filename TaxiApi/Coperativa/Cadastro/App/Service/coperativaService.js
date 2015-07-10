@@ -4,7 +4,7 @@
 
     app.service('buscarService', function ($http) {
 
-        var caminhoApiModulo = "http://" + window.location.hostname + ":17463/api/Coperativa";
+        var caminhoApiModulo = caminhoApi + "Coperativa";
 
         this.get = function () {
             return $http.get(caminhoApiModulo);

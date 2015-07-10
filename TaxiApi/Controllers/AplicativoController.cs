@@ -68,5 +68,10 @@ namespace TaxiApi.Controllers
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             });
         }
+
+        public dynamic Get(string login, string senha)
+        {
+            return Json(new {nome = "Esteves"});
+        }
     }
 }

@@ -26,8 +26,7 @@
                         };
 
                         localStorage["usuarioId"] = angular.toJson(model);
-                        
-                        window.location.href = "http://" + window.location.host + "/Coperativa/Cadastro/index.html";
+                        window.location.href = caminhoHost + "Coperativa/Cadastro/index.html";
                     }
                 })
                 .error(function (xhr) {
