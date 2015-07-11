@@ -7,7 +7,7 @@
 
         $scope.sair = function () {
             localStorage["usuarioId"] = "";
-            window.location.href = "http://" + window.location.host + "/Coperativa/Login/index.html";
+            window.location.href = caminhoHost + "Coperativa/Login/index.html";
         };
     });
 })();

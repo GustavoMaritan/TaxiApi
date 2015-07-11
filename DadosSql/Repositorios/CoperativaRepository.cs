@@ -12,6 +12,8 @@ namespace DadosSql.Repositorios
         {
             using (var ct = new Contexto())
             {
+                var teste = ct.DbCoperativa.ToList();
+
                 var list = ct.DbCoperativa.ToList()
                     .Where(x => x.Ativo == ativo || ativo == null)
                     .Select(x => new CoperativaGrid

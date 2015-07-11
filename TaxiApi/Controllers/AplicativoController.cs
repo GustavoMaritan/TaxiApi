@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Configuration;
+using System.Web.Http;
 using DadosSql.Repositorios;
 using Newtonsoft.Json;
 
@@ -66,6 +67,11 @@ namespace TaxiApi.Controllers
                 NullValueHandling = NullValueHandling.Ignore,
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             });
+        }
+
+        public dynamic Get(string login, string senha)
+        {
+            return Json(new {nome = "Esteves"});
         }
     }
 }
