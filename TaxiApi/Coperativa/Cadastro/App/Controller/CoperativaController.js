@@ -48,7 +48,6 @@
             var index = $scope.todos.indexOf(todo);
             var index1 = $scope.filteredTodos.indexOf(todo);
             var id = $scope.todos[index].Id;
-            console.log(id);
             buscarService.delete(id)
                 .success(function(data) {
                     if (data.error == "") {
@@ -149,7 +148,6 @@
     app.controller('editarCtrl', function ($scope, buscarService, coperativa) {
         if (coperativa.status == 200) {
             $scope.model = coperativa.data;
-            console.log($scope.model.Id);
         }
         
         $scope.modal = false;

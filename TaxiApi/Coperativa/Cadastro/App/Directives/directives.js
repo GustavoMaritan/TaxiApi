@@ -6,7 +6,6 @@
             require: "ngModel",
             link: function (scope, element, attrs, ctrl) {
                 setTimeout(function () {
-                    console.log(ctrl.$viewValue);
                     ctrl.$setViewValue(ctrl.$viewValue.split('T')[0]);
                     ctrl.$render();
                     element.attr('type', 'date');
