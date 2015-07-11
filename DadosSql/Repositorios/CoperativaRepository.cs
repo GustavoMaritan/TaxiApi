@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using DadosSql.Contextos;
 using DadosSql.DataModel.Coperativa;
@@ -12,8 +14,6 @@ namespace DadosSql.Repositorios
         {
             using (var ct = new Contexto())
             {
-                var teste = ct.DbCoperativa.ToList();
-
                 var list = ct.DbCoperativa.ToList()
                     .Where(x => x.Ativo == ativo || ativo == null)
                     .Select(x => new CoperativaGrid
@@ -25,6 +25,47 @@ namespace DadosSql.Repositorios
                         Recebido = x.Controles.OrderBy(d => d.DataVencimento).Last().Recebido,
                     }).ToList();
                 return list;
+            }
+        }
+
+        public override Coperativa Get(int id)
+        {
+            var cop = Ct.DbCoperativa.FirstOrDefault(x => x.Id == id);
+
+            if (cop != null)
+            {
+                var ctrl = cop.Controles.OrderBy(x => x.DataVencimento).Last();
+                cop.Controles.Clear();
+                cop.Controles.Add(ctrl);
+            }
+            return cop;
+        }
+
+        public override int Put(Coperativa obj)
+        {
+            using (var ct = new Contexto())
+            using (var trans = ct.Database.BeginTransaction())
+            {
+                try
+                {
+                    new ControleMensalRepository().Put(obj.Controles.First(), ct);
+
+                    if (obj.Telefones.Any())
+                        new TelefoneRepository().Put(obj.Telefones , obj.Id , ct);
+
+                    obj.Controles = null;
+                    obj.Telefones = null;
+
+                    ct.DbCoperativa.AddOrUpdate(obj);
+                    var a = ct.SaveChanges();
+                    trans.Commit();
+                    return 1;
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    return 0;
+                }
             }
         }
     }

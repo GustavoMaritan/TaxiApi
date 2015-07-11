@@ -132,15 +132,21 @@
     app.controller('editarCtrl', function ($scope, buscarService, coperativa) {
         if (coperativa.status == 200) {
             $scope.model = coperativa.data;
+            console.log($scope.model.Id);
         }
+        
         $scope.modal = false;
         
         $scope.put = function () {
             var a = $scope.model;
             buscarService.put(a)
-                .success(function () {
-                    toastr.success('Cooperativa editada com sucesso.');
-                    window.location.href = "#/Coperativa/Buscar";
+                .success(function (data) {
+                    if (data.error == "") {
+                        toastr.success('Cooperativa editada com sucesso.');
+                        window.location.href = "#/Coperativa/Buscar";
+                    } else {
+                        toastr.error(data.error);
+                    }
                 })
                 .error(function () {
                     toastr.error('Erro ao enviar dados.');
@@ -153,6 +159,7 @@
 
         $scope.addTelefone = function () {
             $scope.model.Telefones.push({
+                CoperativaId: $scope.model.Id,
                 Ddd: null,
                 Numero: null,
                 Ramal: null

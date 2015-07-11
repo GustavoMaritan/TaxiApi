@@ -12,14 +12,6 @@ namespace TaxiApi.Controllers
         {
             var repository = new AdministradorRepository();
 
-            //var a = repository.Post(new Administrador
-            //{
-            //    Email = "gustavo@gmail.com",
-            //    Login = "gustavo",
-            //    Senha = "123456",
-            //    Nome = "Gustavo"
-            //});
-
             var admin = repository.AdminLogado(login, senha);
 
             if (admin != null)
