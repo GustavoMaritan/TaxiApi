@@ -62,37 +62,70 @@
 
     app.controller('cadastroCtrl', function ($scope, buscarService) {
         var user = usuarioLog();
-
+        $scope.modal = false;
+        
         function inicializaModel() {
             $scope.model = {
-                NomeFantasia: "",
-                RazaoSocial: "",
-                QtdeTelefones: "",
-                Pago: false,
-                DataVencimento: "",
-                Login: "",
-                Senha: "",
+                Descricao: "",
+                Ativo: true,
+                DataCadastro: "",
+                Senha: null,
+                Login: null,
                 Cnpj: "",
-                Bloqueado: false,
-                Excluido: false,
-                UsuarioId: user.id,
-                Telefones: []
+                RazaoSocial: "",
+                QtdeTelefones: 0,
+                Endereco: "",
+                Bairro: "",
+                Cep: "",
+                Numero: "",
+                Telefones: [],
+                Controles: [{
+                    DataVencimento: "",
+                    Recebido: false,
+                    Valor: ""
+                }]
             };
-        }
+        };
 
         inicializaModel();
 
         $scope.post = function () {
-            var caminhoApiModulo = "http://" + window.location.hostname + ":17463/api/Coperativa";
             var a = $scope.model;
-            $.post(caminhoApiModulo, a)
+            buscarService.post(a)
                 .success(function () {
+                    inicializaModel();
                     toastr.success('Cooperativa cadastrada com sucesso.');
                 })
                 .error(function () {
                     toastr.error('Erro ao enviar dados.');
                 });
-            inicializaModel();
+        };
+
+        $scope.delTelefone = function (indice) {
+            $scope.model.Telefones.splice(indice, 1);
+        };
+
+        $scope.addTelefone = function () {
+            $scope.model.Telefones.push({
+                Ddd: null,
+                Numero: null,
+                Ramal: null
+            });
+        };
+
+        $scope.fecharModal = function () {
+            var tel = $scope.model.Telefones;
+            var valida = false;
+            for (var i = 0; i < tel.length; i++) {
+                var ddd = tel[i].Ddd;
+                var num = tel[i].Numero;
+                if (ddd == null || ddd == "" || num == null || num == "") {
+                    toastr.error("DDD e Número são obrigatórios.", "Aviso");
+                    valida = true;
+                    break;
+                }
+            }
+            $scope.modal = valida;
         };
     });
 
@@ -100,10 +133,45 @@
         if (coperativa.status == 200) {
             $scope.model = coperativa.data;
         }
+        $scope.modal = false;
+        
+        $scope.put = function () {
+            var a = $scope.model;
+            buscarService.put(a)
+                .success(function () {
+                    toastr.success('Cooperativa editada com sucesso.');
+                    window.location.href = "#/Coperativa/Buscar";
+                })
+                .error(function () {
+                    toastr.error('Erro ao enviar dados.');
+                });
+        };
+
+        $scope.delTelefone = function (indice) {
+            $scope.model.Telefones.splice(indice, 1);
+        };
+
+        $scope.addTelefone = function () {
+            $scope.model.Telefones.push({
+                Ddd: null,
+                Numero: null,
+                Ramal: null
+            });
+        };
+
+        $scope.fecharModal = function () {
+            var tel = $scope.model.Telefones;
+            var valida = false;
+            for (var i = 0; i < tel.length; i++) {
+                var ddd = tel[i].Ddd;
+                var num = tel[i].Numero;
+                if (ddd == null || ddd == "" || num == null || num == "") {
+                    toastr.error("DDD e Número são obrigatórios.", "Aviso");
+                    valida = true;
+                    break;
+                }
+            }
+            $scope.modal = valida;
+        };
     });
 })();
-
-
-
-
-

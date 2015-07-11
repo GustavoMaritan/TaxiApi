@@ -18,5 +18,10 @@
             console.log(entidade);
             return $http.post(caminhoApiModulo, entidade);
         };
+        
+        this.put = function (entidade) {
+            console.log(entidade);
+            return $http.put(caminhoApiModulo, entidade);
+        };
     });
 })();

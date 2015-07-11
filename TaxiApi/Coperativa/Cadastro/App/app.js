@@ -3,5 +3,6 @@
     'headerController',
     'coperativaControllers',
     'serviceCoperativa',
+    'directives',
     'routes'
 ]);
