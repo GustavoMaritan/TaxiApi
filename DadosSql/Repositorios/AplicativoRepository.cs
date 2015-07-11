@@ -11,7 +11,7 @@ namespace DadosSql.Repositorios
         {
             using (var ct = new Contexto())
             {
-                return ct.DbCoperativa
+                return ct.DbCoperativa.Where(x => x.Ativo)
                     .Select(x => new CoperativaApp
                     {
                         Id = x.Id,

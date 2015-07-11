@@ -68,6 +68,7 @@
             $scope.model = {
                 Descricao: "",
                 Ativo: true,
+                Excluido: false,
                 DataCadastro: "",
                 Senha: null,
                 Login: null,

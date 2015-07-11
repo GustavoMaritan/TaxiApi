@@ -7,6 +7,7 @@ namespace DadosSql.Entidades
     {
         public string Descricao { get; set; }
         public bool Ativo { get; set; }
+        public bool Excluido { get; set; }
         public DateTime DataCadastro { get; set; }
         public string Senha { get; set; }
         public string Login { get; set; }

@@ -13,6 +13,7 @@ namespace DadosSql.Mapeamento
             HasMany(x => x.Telefones);
 
             Property(x => x.Ativo).IsRequired();
+            Property(x => x.Excluido).IsRequired();
             Property(x => x.DataCadastro).IsRequired();
             Property(x => x.Descricao).IsRequired();
             Property(x => x.Senha).IsRequired();
