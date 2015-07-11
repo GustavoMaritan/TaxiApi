@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -222,12 +223,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DadosSql\DadosSql.csproj">
-      <Project>{55c3afb6-4c3b-4ab5-aaaa-da4a54f5a0fb}</Project>
-      <Name>DadosSql</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Comum\content\bootstrap\bootstrap-theme.css.map" />
     <Content Include="Comum\content\bootstrap\bootstrap.css.map" />
@@ -252,6 +247,12 @@
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\desenv.pubxml" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DadosSql\DadosSql.csproj">
+      <Project>{55c3afb6-4c3b-4ab5-aaaa-da4a54f5a0fb}</Project>
+      <Name>DadosSql</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
