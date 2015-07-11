@@ -5,7 +5,7 @@ using DadosSql.Entidades;
 
 namespace DadosSql.Repositorios
 {
-    public class ControleMensalRepository : BaseRepository<ControleMensal>
+    public class ControleMensalRepository //: BaseRepository<ControleMensal>
     {
         public void Put(ControleMensal obj , Contexto ctx)
         {

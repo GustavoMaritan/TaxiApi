@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using DadosSql.Contextos;
@@ -8,7 +9,7 @@ using DadosSql.Entidades;
 
 namespace DadosSql.Repositorios
 {
-    public class CoperativaRepository : BaseRepository<Coperativa>
+    public class CoperativaRepository
     {
         public List<CoperativaGrid> GetGrid(bool? ativo = null)
         {
@@ -28,9 +29,10 @@ namespace DadosSql.Repositorios
             }
         }
 
-        public override Coperativa Get(int id)
+        public Coperativa Get(int id)
         {
-            var cop = Ct.DbCoperativa.FirstOrDefault(x => x.Id == id);
+            var ct = new Contexto();
+            var cop = ct.DbCoperativa.FirstOrDefault(x => x.Id == id);
 
             if (cop != null)
             {
@@ -41,7 +43,7 @@ namespace DadosSql.Repositorios
             return cop;
         }
 
-        public override int Put(Coperativa obj)
+        public void Put(Coperativa obj)
         {
             using (var ct = new Contexto())
             using (var trans = ct.Database.BeginTransaction())
@@ -51,7 +53,7 @@ namespace DadosSql.Repositorios
                     new ControleMensalRepository().Put(obj.Controles.First(), ct);
 
                     if (obj.Telefones.Any())
-                        new TelefoneRepository().Put(obj.Telefones , obj.Id , ct);
+                        new TelefoneRepository().Put(obj.Telefones, obj.Id, ct);
 
                     obj.Controles = null;
                     obj.Telefones = null;
@@ -59,13 +61,40 @@ namespace DadosSql.Repositorios
                     ct.DbCoperativa.AddOrUpdate(obj);
                     var a = ct.SaveChanges();
                     trans.Commit();
-                    return 1;
                 }
                 catch (Exception ex)
                 {
                     trans.Rollback();
-                    return 0;
+                    throw ex;
                 }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (var ct = new Contexto())
+            {
+                var coper = ct.DbCoperativa.FirstOrDefault(x => x.Id == id);
+
+                if (coper == null)
+                    return;
+
+                coper.Ativo = false;
+                coper.Excluido = true;
+
+                ct.Entry(coper).State = EntityState.Modified;
+
+                ct.SaveChanges();
+            }
+        }
+
+        public int Post(Coperativa obj)
+        {
+            using (var ct = new Contexto())
+            {
+                ct.DbCoperativa.Add(obj);
+
+                return ct.SaveChanges();
             }
         }
     }

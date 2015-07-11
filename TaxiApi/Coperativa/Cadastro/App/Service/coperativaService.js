@@ -15,13 +15,15 @@
         };
         
         this.post = function (entidade) {
-            console.log(entidade);
             return $http.post(caminhoApiModulo, entidade);
         };
         
         this.put = function (entidade) {
-            console.log(entidade);
             return $http.put(caminhoApiModulo, entidade);
+        };
+        
+        this.delete = function (id) {
+            return $http.delete(caminhoApiModulo + "?id=" + id);
         };
     });
 })();

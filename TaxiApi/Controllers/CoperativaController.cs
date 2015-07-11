@@ -35,20 +35,46 @@ namespace TaxiApi.Controllers
         [HttpPost]
         public dynamic Post(Coperativa usua)
         {
-            usua.DataCadastro = DateTime.Now;
-            usua.Controles[0].DataContrato = DateTime.Now;
-            var user = new CoperativaRepository().Post(usua);
-            return Json(user);
+            try
+            {
+                usua.DataCadastro = DateTime.Now;
+                usua.Controles[0].DataContrato = DateTime.Now;
+                var user = new CoperativaRepository().Post(usua);
+                return Json(new { error = "" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+      
         }
 
         [HttpPut]
         public dynamic Put(Coperativa usua)
         {
-            var user = new CoperativaRepository().Put(usua);
+            try
+            {
+                new CoperativaRepository().Put(usua);
+                return Json(new {error = ""});
+            }
+            catch (Exception ex)
+            {
+                return Json(new {error = ex.Message});
+            }
+        }
 
-            return user == 1
-                ? Json(new {error = ""})
-                : Json(new {error = "Erro  ao editar coperativa."});
+        [HttpDelete]
+        public dynamic Delete(int id)
+        {
+            try
+            {
+                new CoperativaRepository().Delete(id);
+                return Json(new {error = ""});
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
     }
 }

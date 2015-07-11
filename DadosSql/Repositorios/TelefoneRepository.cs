@@ -7,7 +7,7 @@ using DadosSql.Entidades;
 
 namespace DadosSql.Repositorios
 {
-    public class TelefoneRepository : BaseRepository<Telefone>
+    public class TelefoneRepository// : BaseRepository<Telefone>
     {
         public void Put(IList<Telefone> telefones , int copId , Contexto ctx)
         {
@@ -15,7 +15,7 @@ namespace DadosSql.Repositorios
             {
                 var tels = ctx.DbTelefone.Where(x => x.CoperativaId == copId).ToList();
 
-                foreach (var telefone in tels.Where(telefone => telefones.Any(x => x.Id == telefone.Id)))
+                foreach (var telefone in tels.Where(telefone => telefones.All(x => x.Id != telefone.Id)))
                     ctx.DbTelefone.Remove(telefone);
 
                 foreach (var telefone in telefones)

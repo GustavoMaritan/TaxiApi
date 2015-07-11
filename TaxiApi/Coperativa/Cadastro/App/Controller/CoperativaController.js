@@ -9,15 +9,6 @@
         $scope.maxSize = 5;
         $scope.totalPaginas = 1;
 
-        $scope.remover = function (todo) {
-            var index = $scope.todos.indexOf(todo);
-            var index1 = $scope.filteredTodos.indexOf(todo);
-            $scope.todos.splice(index, 1);
-            $scope.filteredTodos.splice(index1, 1);
-            toastr.warning(todo.Id);
-            $scope.pageChanged();
-        };
-
         $scope.ordenar = function (ordenacao) {
             $scope.order = ordenacao;
         };
@@ -51,6 +42,27 @@
             $scope.numPerPage = pageNo;
             $scope.pageChanged();
             totPag($scope.todos.length, $scope.numPerPage);
+        };
+
+        $scope.delete = function (todo) {
+            var index = $scope.todos.indexOf(todo);
+            var index1 = $scope.filteredTodos.indexOf(todo);
+            var id = $scope.todos[index].Id;
+            console.log(id);
+            buscarService.delete(id)
+                .success(function(data) {
+                    if (data.error == "") {
+                        toastr.success("Coperativa excluida com sucesso.");
+                        $scope.todos.splice(index, 1);
+                        $scope.filteredTodos.splice(index1, 1);
+                        $scope.pageChanged();
+                    } else {
+                        toastr.error(data.error);
+                    }
+                })
+                .error(function() {
+                    toastr.error("Erro ao excluir coperativa.");
+                });
         };
 
         if (listCoperativa.status == 200) {
@@ -93,9 +105,13 @@
         $scope.post = function () {
             var a = $scope.model;
             buscarService.post(a)
-                .success(function () {
-                    inicializaModel();
-                    toastr.success('Cooperativa cadastrada com sucesso.');
+                .success(function (data) {
+                    if (data.error == "") {
+                        inicializaModel();
+                        toastr.success('Cooperativa cadastrada com sucesso.');
+                    } else {
+                        toastr.error(data.error);
+                    }
                 })
                 .error(function () {
                     toastr.error('Erro ao enviar dados.');
