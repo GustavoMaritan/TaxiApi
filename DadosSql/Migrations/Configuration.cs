@@ -1,12 +1,8 @@
-﻿using DadosSql.Contextos;
+﻿using System.Data.Entity.Migrations;
+using DadosSql.Contextos;
 
 namespace DadosSql.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     internal sealed class Configuration : DbMigrationsConfiguration<Contexto>
     {
         public Configuration()
