@@ -5,7 +5,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using DadosSql.Contextos;
 using DadosSql.DataModel.Coperativa;
-using DadosSql.Entidades;
+using DadosSql.Entities;
 
 namespace DadosSql.Repositorios
 {
@@ -15,50 +15,47 @@ namespace DadosSql.Repositorios
         {
             using (var ct = new Contexto())
             {
-                var list = ct.DbCoperativa.ToList()
+                var list = ct.Cooperativa.ToList()
                     .Where(x => x.Ativo == ativo || ativo == null)
                     .Select(x => new CoperativaGrid
                     {
                         Id = x.Id,
                         Descricao = x.Descricao,
-                        QtdeTelefones = x.QtdeTelefones,
-                        DataVencimento = x.Controles.OrderBy(d => d.DataVencimento).Last().DataVencimento,
-                        Recebido = x.Controles.OrderBy(d => d.DataVencimento).Last().Recebido,
                     }).ToList();
                 return list;
             }
         }
 
-        public Coperativa Get(int id)
+        public Cooperativa Get(int id)
         {
             var ct = new Contexto();
-            var cop = ct.DbCoperativa.FirstOrDefault(x => x.Id == id);
+            var cop = ct.Cooperativa.FirstOrDefault(x => x.Id == id);
 
             if (cop != null)
             {
-                var ctrl = cop.Controles.OrderBy(x => x.DataVencimento).Last();
-                cop.Controles.Clear();
-                cop.Controles.Add(ctrl);
+                var ctrl = cop.Pagamentos.OrderBy(x => x.DataVencimento).Last();
+                cop.Pagamentos.Clear();
+                cop.Pagamentos.Add(ctrl);
             }
             return cop;
         }
 
-        public void Put(Coperativa obj)
+        public void Put(Cooperativa obj)
         {
             using (var ct = new Contexto())
             using (var trans = ct.Database.BeginTransaction())
             {
                 try
                 {
-                    new ControleMensalRepository().Put(obj.Controles.First(), ct);
+                    new ControleMensalRepository().Put(obj.Pagamentos.First(), ct);
 
                     if (obj.Telefones.Any())
                         new TelefoneRepository().Put(obj.Telefones, obj.Id, ct);
 
-                    obj.Controles = null;
+                    obj.Pagamentos = null;
                     obj.Telefones = null;
 
-                    ct.DbCoperativa.AddOrUpdate(obj);
+                    ct.Cooperativa.AddOrUpdate(obj);
                     var a = ct.SaveChanges();
                     trans.Commit();
                 }
@@ -74,7 +71,7 @@ namespace DadosSql.Repositorios
         {
             using (var ct = new Contexto())
             {
-                var coper = ct.DbCoperativa.FirstOrDefault(x => x.Id == id);
+                var coper = ct.Cooperativa.FirstOrDefault(x => x.Id == id);
 
                 if (coper == null)
                     return;
@@ -88,11 +85,11 @@ namespace DadosSql.Repositorios
             }
         }
 
-        public int Post(Coperativa obj)
+        public int Post(Cooperativa obj)
         {
             using (var ct = new Contexto())
             {
-                ct.DbCoperativa.Add(obj);
+                ct.Cooperativa.Add(obj);
 
                 return ct.SaveChanges();
             }

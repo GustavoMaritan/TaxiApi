@@ -1,31 +1,30 @@
 ﻿using System;
 using System.Data.Entity.Migrations;
 using DadosSql.Contextos;
-using DadosSql.Entidades;
+using DadosSql.Entities;
 
 namespace DadosSql.Repositorios
 {
     public class ControleMensalRepository //: BaseRepository<ControleMensal>
     {
-        public void Put(ControleMensal obj , Contexto ctx)
+        public void Put(Pagamento obj , Contexto ctx)
         {
             try
             {
-                ctx.DbControleMensal.AddOrUpdate(obj);
+                ctx.Pagamento.AddOrUpdate(obj);
 
                 if (!obj.Recebido) 
                     return;
 
-                var controle = new ControleMensal
+                var controle = new Pagamento
                 {
                     Id = 0,
-                    CoperativaId = obj.CoperativaId,
-                    DataContrato = obj.DataContrato,
+                    CooperativaId = obj.CooperativaId,
                     DataVencimento = obj.DataVencimento.AddMonths(1),
                     Recebido = false,
                     Valor = obj.Valor
                 };
-                ctx.DbControleMensal.AddOrUpdate(controle);
+                ctx.Pagamento.AddOrUpdate(controle);
             }
             catch (Exception ex)
             {

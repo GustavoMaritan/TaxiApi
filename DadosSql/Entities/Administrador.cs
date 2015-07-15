@@ -1,6 +1,6 @@
-﻿namespace DadosSql.Entidades
+﻿namespace DadosSql.Entities
 {
-    public class Administrador : BaseEntity
+    public class Administrador : Entity
     {
         public string Login { get; set; }
         public string Senha { get; set; }

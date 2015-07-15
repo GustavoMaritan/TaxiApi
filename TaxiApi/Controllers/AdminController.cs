@@ -1,5 +1,5 @@
 ﻿using System.Web.Http;
-using DadosSql.Entidades;
+using DadosSql.Entities;
 using DadosSql.Repositorios;
 
 namespace TaxiApi.Controllers

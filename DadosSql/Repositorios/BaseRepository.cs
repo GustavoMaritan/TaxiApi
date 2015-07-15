@@ -2,11 +2,11 @@
 using System.Data.Entity;
 using System.Linq;
 using DadosSql.Contextos;
-using DadosSql.Entidades;
+using DadosSql.Entities;
 
 namespace DadosSql.Repositorios
 {
-    public class BaseRepository<T> where T : BaseEntity
+    public class BaseRepository<T> where T : Entity
     {
         public Contexto Ct = new Contexto();
 
@@ -47,11 +47,9 @@ namespace DadosSql.Repositorios
 
         public virtual int DeleteAll()
         {
-            var cred = Ct.Set<T>().ToList();
-
-            foreach (var obj in cred)
-                Ct.Set<T>().Remove(obj);
-
+            var entities = Ct.Set<T>().ToList();
+            if(entities.Any())
+                Ct.Set<T>().RemoveRange(entities);
             return Ct.SaveChanges();
         }
     }

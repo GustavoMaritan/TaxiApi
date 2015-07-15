@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Http;
-using DadosSql.Entidades;
+using DadosSql.Entities;
 using DadosSql.Repositorios;
 using Newtonsoft.Json;
 
@@ -33,12 +34,11 @@ namespace TaxiApi.Controllers
         }
 
         [HttpPost]
-        public dynamic Post(Coperativa usua)
+        public dynamic Post(Cooperativa usua)
         {
             try
             {
                 usua.DataCadastro = DateTime.Now;
-                usua.Controles[0].DataContrato = DateTime.Now;
                 var user = new CoperativaRepository().Post(usua);
                 return Json(new { error = "" });
             }
@@ -50,7 +50,7 @@ namespace TaxiApi.Controllers
         }
 
         [HttpPut]
-        public dynamic Put(Coperativa usua)
+        public dynamic Put(Cooperativa usua)
         {
             try
             {

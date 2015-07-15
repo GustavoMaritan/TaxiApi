@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity.Migrations;
 using DadosSql.Contextos;
+using DadosSql.Entities;
 
 namespace DadosSql.Migrations
 {
@@ -7,7 +8,7 @@ namespace DadosSql.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Contexto context)
@@ -17,12 +18,8 @@ namespace DadosSql.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
+            context.Operadora.AddOrUpdate(
+              x => x.Nome, new Operadora("Claro"), new Operadora("Tim"), new Operadora("Vivo"));
             //
         }
     }

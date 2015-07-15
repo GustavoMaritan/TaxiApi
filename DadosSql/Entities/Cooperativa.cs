@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DadosSql.Entidades
+namespace DadosSql.Entities
 {
-    public class Coperativa : BaseEntity
+    public class Cooperativa : Entity
     {
         public string Descricao { get; set; }
         public bool Ativo { get; set; }
@@ -13,13 +13,13 @@ namespace DadosSql.Entidades
         public string Login { get; set; }
         public string Cnpj { get; set; }
         public string RazaoSocial { get; set; }
-        public int QtdeTelefones { get; set; }
         public string Endereco { get; set; }
         public string Bairro { get; set; }
         public int Cep { get; set; }
         public int Numero { get; set; }
-
-        public virtual IList<Telefone> Telefones { get; set; }
-        public virtual IList<ControleMensal> Controles { get; set; }
+        public byte DiaPagamento { get; set; }
+        public virtual Plano Plano { get; set; }
+        public ICollection<Pagamento> Pagamentos { get; set; }
+        public ICollection<Telefone> Telefones { get; set; }
     }
 }

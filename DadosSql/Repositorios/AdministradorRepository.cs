@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using DadosSql.Contextos;
-using DadosSql.Entidades;
+using DadosSql.Entities;
 
 namespace DadosSql.Repositorios
 {
@@ -10,10 +10,10 @@ namespace DadosSql.Repositorios
         {
             using (var ct = new Contexto())
             {
-                var teste = ct.DbAdministrador
+                var administrador = ct.Administrador
                      .FirstOrDefault(x => x.Login.Equals(login) && x.Senha.Equals(senha));
 
-                return teste;
+                return administrador;
             }
         }
     }
