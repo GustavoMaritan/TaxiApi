@@ -112,7 +112,7 @@
                     <button type="button" class="close" data-dismiss="modal" ng-click="fecharModal()" aria-hidden="true">×</button>
                     <h4 class="modal-title">Telefones</h4>
                 </div>
-                <div class="modal-body">
+                <div id="divTelefonesEditar" class="modis-body">
                     <div class="col-sm-12" ng-repeat="telefone in model.Telefones">
                         <div class="row">
                             <div class="col-sm-12 form-group">
@@ -151,6 +151,12 @@
         -webkit-overflow-scrolling: touch;
         outline: 0;
         background-color: rgba(255,255,255,0.7);
+    }
+        .modis-body {
+        position: relative;
+        padding: 20px;
+        max-height: 379px !important;
+        overflow-y: auto;
     }
 
     .modal-footer {

@@ -127,6 +127,8 @@
                 Numero: null,
                 Ramal: null
             });
+            var objDiv = document.getElementById("divTelefonesEditar");
+            objDiv.scrollTop = objDiv.scrollHeight + 300;
         };
 
         $scope.fecharModal = function () {
@@ -179,6 +181,8 @@
                 Numero: null,
                 Ramal: null
             });
+            var objDiv = document.getElementById("divTelefonesEditar");
+            objDiv.scrollTop = objDiv.scrollHeight + 300;
         };
 
         $scope.fecharModal = function () {
