@@ -9,7 +9,8 @@ namespace DadosSql.Contextos
 {
     public class Contexto : DbContext
     {
-        public Contexto() : base(ConfigurationManager.ConnectionStrings["ConnectionSQLMussak"].ConnectionString)
+        public Contexto()
+            : base(ConfigurationManager.ConnectionStrings["ConnectionSQL"].ConnectionString)
         {
             
         }

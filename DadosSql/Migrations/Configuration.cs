@@ -20,6 +20,16 @@ namespace DadosSql.Migrations
             //
             context.Operadora.AddOrUpdate(
               x => x.Nome, new Operadora("Claro"), new Operadora("Tim"), new Operadora("Vivo"));
+
+            context.Administrador.AddOrUpdate(
+                new Administrador
+                {
+                    Email = "gustavo@gmail.com",
+                    Login = "gustavo",
+                    Nome = "Gustavo",
+                    Senha = "123456"
+                }
+                );
             //
         }
     }
