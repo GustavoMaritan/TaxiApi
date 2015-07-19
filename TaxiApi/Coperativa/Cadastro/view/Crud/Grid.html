@@ -1,117 +1,78 @@
-﻿<style>
-    .divRod {
-        background-color: rgb(234, 234, 234);
-        min-height: 38px !important;
-        min-width: 452px;
-    }
-
-    .filtroBusca {
-        cursor: pointer;
-    }
-
-    .tdValores {
-        text-overflow: ellipsis;
-        max-width: 180px;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-</style>
-<div class="container">
-    <accordion close-others="oneAtATime">
-        <accordion-group heading="Filtros de Busca" class="filtroBusca" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-            <div class="form-group">
-                <label class="control-label" for="inputDefault">Default input</label>
-                <input type="text" class="form-control" id="inputDefault">
+﻿<h3 class="page-header">Coperativas</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-inverse">
+            <div class="panel-heading">
+                <h4 class="panel-title">Grid Resultado</h4>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="inputDefault">Default input</label>
-                <input type="text" class="form-control" id="inputDefault">
-            </div>
-            <div class="text-right">
-                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-default">Default</a>
-                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-primary">Primary</a>
-                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-success">Success</a>
-                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-info">Info</a>
-                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-warning">Warning</a>
-                <a href="" ng-click="status.isFirstOpen = false" class="btn btn-danger">Danger</a>
-            </div>
-        </accordion-group>
-    </accordion>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Lista de Cooperativas</h3>
-        </div>
-        <div class="panel-body" style="overflow-x: auto">
-            <div class="text-right" style="min-width: 452px;">
-                Registros por página
-                <select ng-model="numPerPage" ng-change="setNumPerPage(numPerPage)">
-                    <option value="1">1</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th><a ng-click="ordenar('Descricao')">Nome Fantasia</a></th>
-                        <th><a ng-click="ordenar('QtdeTelefones')">Qtde Telefones</a></th>
-                        <th><a ng-click="ordenar('Recebido')">Recebido</a></th>
-                        <th><a ng-click="ordenar('DataVencimento')">Data Vencimento</a></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="6">
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="Filtrar por descrição"
-                                   ng-model="filter" />
-                        </td>
-                    </tr>
-                    <tr ng-repeat="todo in filteredTodos | filter: filter | orderBy: order">
-                        <td class="">{{ todo.Descricao }}</td>
-                        <td class="text-center">{{ todo.QtdeTelefones }}</td>
-                        <td class="text-center">{{ todo.Recebido ? "Sim" : "Não"}}</td>
-                        <td class="text-center">{{ mascaraData(todo.DataVencimento) }}</td>
-                        <td class="text-center">
-                            <a href="#/Coperativa/Editar/{{todo.Id}}" class="btn btn-sm btn-success" title="Editar">
-                                <i class="fa fa-pencil-square-o"></i>
-                            </a>
-                        </td>
-                        <td class="text-center">
-                            <button class="btn btn-sm btn-danger" ng-click="delete(todo)" title="Excluir">
-                                <i class="fa fa-remove"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="col-sm-12 divRod">
-                <div class="col-sm-3 text-left" style="padding-top: 9px;">
-                    <strong>Page: {{currentPage}} / {{totalPaginas}}</strong>
-                </div>
-                <div class="col-sm-6 text-center" style="height: 28px; padding-top: 4px;">
-                    <pagination ng-model="currentPage"
-                                total-items="todos.length"
-                                max-size="maxSize"
-                                class="pagination-sm"
-                                ng-change="pageChanged()"
-                                items-per-page="numPerPage"
-                                last-text=">>"
-                                next-text=">"
-                                first-text="<<"
-                                previous-text="<"
-                                direction-links="true"
-                                boundary-links="true"
-                                style="margin: 0">
-                    </pagination>
-                </div>
-                <div class="col-sm-3 text-right" style="padding-top: 9px;">
-                    <strong>{{ remaining() }} Registro(s)</strong>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <div id="data-table_wrapper" class="dataTables_wrapper no-footer">
+                        <div class="dataTables_length" id="data-table_length">
+                            <label>
+                                Registros por página
+                                <select ng-model="numPerPage" ng-change="setNumPerPage(numPerPage)">
+                                    <option value="1">1</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div id="data-table_filter" class="dataTables_filter">
+                            <label>
+                                Search:
+                                <input type="search" placeholder="Filtrar por descrição" ng-model="filter" aria-controls="data-table" />
+                            </label>
+                        </div>
+                        <table id="data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="data-table_info">
+                            <thead>
+                                <tr role="row">
+                                    <th><a ng-click="ordenar('Descricao')">Nome Fantasia</a></th>
+                                    <th><a ng-click="ordenar('QtdeTelefones')">Qtde Telefones</a></th>
+                                    <th><a ng-click="ordenar('Recebido')">Recebido</a></th>
+                                    <th><a ng-click="ordenar('DataVencimento')">Data Vencimento</a></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="todo in filteredTodos | filter: filter | orderBy: order" class="gradeA" role="row">
+                                    <td class="">{{ todo.Descricao }}</td>
+                                    <td class="text-center">{{ todo.QtdeTelefones }}</td>
+                                    <td class="text-center">{{ todo.Recebido ? "Sim" : "Não"}}</td>
+                                    <td class="text-center">{{ mascaraData(todo.DataVencimento) }}</td>
+                                    <td class="text-center">
+                                        <a href="#/Coperativa/Editar/{{todo.Id}}" class="btn btn-sm btn-success" title="Editar">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-danger" ng-click="delete(todo)" title="Excluir">
+                                            <i class="fa fa-remove"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="data-table_info" role="status" aria-live="polite">
+                            <strong>Page: {{currentPage}} / {{totalPaginas}}</strong>
+                        </div>
+                        <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
+                            <pagination ng-model="currentPage"
+                                        total-items="todos.length"
+                                        max-size="maxSize"
+                                        ng-change="pageChanged()"
+                                        items-per-page="numPerPage"
+                                        last-text=">>"
+                                        next-text=">"
+                                        first-text="<<"
+                                        previous-text="<"
+                                        direction-links="true"
+                                        boundary-links="true"
+                                        style="margin: 0">
+                            </pagination>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

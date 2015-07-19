@@ -1,0 +1,54 @@
+﻿<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+    <div data-scrollbar="true" data-height="100%" style="overflow: hidden; width: auto; height: 100%;">
+        <ul class="nav">
+            <li class="nav-profile">
+                <div class="image">
+                    <a href="javascript:;"><img src="../../../Comum/content/taxi2.png" alt=""></a>
+                </div>
+                <div class="info">
+                    Taxi Now
+                    <small>Ctrl Administração</small>
+                </div>
+            </li>
+        </ul>
+        <ul class="nav" id="divMenu">
+            <li class="nav-header">Menu</li>
+            <li class="has-sub active">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-car"></i>
+                    <span>Coperativa</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="active"><a href="#/Coperativa/Buscar">Buscar</a></li>
+                    <li><a href="#/Coperativa/Cadastro">Cadastrar</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-laptop"></i>
+                    <span>Operadora</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#/Coperativa/Buscar">Dashboard v1</a></li>
+                    <li><a href="#/Coperativa/Cadastro">Dashboard v2</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+        </ul>
+    </div><div class="slimScrollBar ui-draggable" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 883px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>
+</div>
+<script>
+    $(document).ready(function () {
+        App.init();
+    });
+    $('#divMenu ul.sub-menu li').click(function () {
+        $('#divMenu ul.sub-menu li').removeClass();
+        $(this).addClass('active');
+    });
+    $('#divMenu > li').click(function () {
+        $('#divMenu > li').removeClass('active');
+        $(this).addClass('active');
+    });
+</script>
