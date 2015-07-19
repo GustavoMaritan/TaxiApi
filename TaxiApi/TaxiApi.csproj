@@ -154,25 +154,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Comum\content\bootstrap\bootstrap-theme.css" />
-    <Content Include="Comum\content\bootstrap\bootstrap-theme.css.map" />
-    <Content Include="Comum\content\bootstrap\bootstrap-theme.min.css" />
-    <Content Include="Comum\content\bootstrap\bootstrap.css" />
-    <Content Include="Comum\content\bootstrap\bootstrap.css.map" />
-    <Content Include="Comum\content\bootstrap\bootstrap.min.css" />
-    <Content Include="Comum\content\bootswatch\spacelab\bootstrap.css" />
-    <Content Include="Comum\content\bootswatch\spacelab\bootstrap.min.css" />
-    <Content Include="Comum\content\bootswatch\spacelab\bootswatch.less" />
-    <Content Include="Comum\content\bootswatch\spacelab\thumbnail.png" />
-    <Content Include="Comum\content\css\agenda.css" />
-    <Content Include="Comum\content\css\bootstrap.min.css" />
-    <Content Include="Comum\content\css\cadastro.css" />
-    <Content Include="Comum\content\css\font-awesome.min.css" />
-    <Content Include="Comum\content\css\login.css" />
-    <Content Include="Comum\content\css\sliders.css" />
     <Content Include="Comum\content\css\style.css" />
-    <Content Include="Comum\content\css\ui-buttons.css" />
-    <Content Include="Comum\content\css\ui-notifications.css" />
     <Content Include="Comum\content\taxi.png" />
     <Content Include="Comum\content\taxi1.png" />
     <Content Include="Comum\content\taxi2.png" />
@@ -245,16 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Comum\content\bootstrap\bootstrap-theme.css.map" />
-    <Content Include="Comum\content\bootstrap\bootstrap.css.map" />
-    <Content Include="Comum\content\bootswatch\.bower.json" />
-    <Content Include="Comum\content\bootswatch\bower.json" />
-    <Content Include="Comum\content\bootswatch\LICENSE" />
-    <Content Include="Comum\content\bootswatch\README.md" />
-    <Content Include="Comum\content\bootswatch\spacelab\bootswatch.less" />
-    <Content Include="Comum\content\bootswatch\spacelab\variables.less" />
-    <Content Include="Comum\content\bootswatch\spacelab\_bootswatch.scss" />
-    <Content Include="Comum\content\bootswatch\spacelab\_variables.scss" />
     <Content Include="Comum\content\toastr\toastr.less" />
     <Content Include="Comum\content\toastr\toastr.scss" />
     <Content Include="Comum\fonts\glyphicons-halflings-regular.eot" />
