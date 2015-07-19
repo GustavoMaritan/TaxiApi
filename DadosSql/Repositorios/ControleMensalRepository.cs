@@ -11,20 +11,20 @@ namespace DadosSql.Repositorios
         {
             try
             {
-                ctx.Pagamento.AddOrUpdate(obj);
+                //ctx.Pagamento.AddOrUpdate(obj);
 
-                if (!obj.Recebido) 
-                    return;
+                //if (!obj.Recebido) 
+                //    return;
 
-                var controle = new Pagamento
-                {
-                    Id = 0,
-                    CooperativaId = obj.CooperativaId,
-                    DataVencimento = obj.DataVencimento.AddMonths(1),
-                    Recebido = false,
-                    Valor = obj.Valor
-                };
-                ctx.Pagamento.AddOrUpdate(controle);
+                //var controle = new Pagamento
+                //{
+                //    Id = 0,
+                //    CooperativaId = obj.CooperativaId,
+                //    DataVencimento = obj.DataVencimento.AddMonths(1),
+                //    Recebido = false,
+                //    Valor = obj.Valor
+                //};
+                //ctx.Pagamento.AddOrUpdate(controle);
             }
             catch (Exception ex)
             {

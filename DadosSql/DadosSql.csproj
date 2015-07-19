@@ -71,6 +71,8 @@
     <Compile Include="Repositorios\BaseRepository.cs" />
     <Compile Include="Repositorios\ControleMensalRepository.cs" />
     <Compile Include="Repositorios\CoperativaRepository.cs" />
+    <Compile Include="Repositorios\PagamentoRepository.cs" />
+    <Compile Include="Repositorios\PlanoRepository.cs" />
     <Compile Include="Repositorios\TelefoneRepository.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -38,7 +38,6 @@ namespace TaxiApi.Controllers
         {
             try
             {
-                usua.DataCadastro = DateTime.Now;
                 var user = new CoperativaRepository().Post(usua);
                 return Json(new { error = "" });
             }
@@ -46,7 +45,6 @@ namespace TaxiApi.Controllers
             {
                 return Json(new { error = ex.Message });
             }
-      
         }
 
         [HttpPut]

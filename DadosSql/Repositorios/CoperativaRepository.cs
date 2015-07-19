@@ -21,6 +21,9 @@ namespace DadosSql.Repositorios
                     {
                         Id = x.Id,
                         Descricao = x.Descricao,
+                        DescricaoPlano = x.Plano.Descricao,
+                        DataCadastro = x.DataCadastro,
+                        DataVencimento = x.Pagamentos.Last(y => y.CooperativaId == x.Id).DataVencimento
                     }).ToList();
                 return list;
             }
@@ -89,9 +92,31 @@ namespace DadosSql.Repositorios
         {
             using (var ct = new Contexto())
             {
-                ct.Cooperativa.Add(obj);
+                using (var trans = ct.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        obj.DataCadastro = DateTime.Now;
 
-                return ct.SaveChanges();
+                        obj.Pagamentos[0].Valor = ct.Plano.Find(obj.PlanoId).Preco;
+
+                        ct.Cooperativa.Add(obj);
+
+                        ct.SaveChanges();
+
+                        if (obj.Pagamentos[0].DataPagamento != null)
+                            new PagamentoRepository().NewPagamento(obj.Pagamentos[0], ct);
+
+                        trans.Commit();
+                        return obj.Id;
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        throw ex;
+                    }
+                }
+  
             }
         }
     }

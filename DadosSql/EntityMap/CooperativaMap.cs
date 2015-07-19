@@ -11,7 +11,10 @@ namespace DadosSql.EntityMap
 
             HasMany(x => x.Pagamentos);
             HasMany(x => x.Telefones);
-            //HasRequired(x => x.Plano).WithMany(x => x.Cooperativas);
+
+            HasRequired(c => c.Plano)
+                .WithMany(c => c.Cooperativas)
+                .HasForeignKey(x => x.PlanoId);
 
             Property(x => x.Ativo).IsRequired();
             Property(x => x.Excluido).IsRequired();
@@ -25,7 +28,6 @@ namespace DadosSql.EntityMap
             Property(x => x.Bairro).IsRequired().HasMaxLength(50);
             Property(x => x.Cep).IsRequired();
             Property(x => x.Numero).IsRequired();
-            Property(x => x.DiaPagamento).IsRequired();
         }
     }
 }

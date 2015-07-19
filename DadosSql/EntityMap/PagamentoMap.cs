@@ -14,7 +14,7 @@ namespace DadosSql.EntityMap
                 .HasForeignKey(c => c.CooperativaId);
 
             Property(x => x.DataVencimento).IsRequired();
-            Property(x => x.Recebido).IsRequired();
+            Property(x => x.DataPagamento).IsOptional();
             Property(x => x.Valor).IsRequired();
         }
     }

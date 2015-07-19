@@ -17,9 +17,9 @@ namespace DadosSql.Entities
         public string Bairro { get; set; }
         public int Cep { get; set; }
         public int Numero { get; set; }
-        public byte DiaPagamento { get; set; }
+        public int PlanoId { get; set; }
         public virtual Plano Plano { get; set; }
-        public ICollection<Pagamento> Pagamentos { get; set; }
-        public ICollection<Telefone> Telefones { get; set; }
+        public virtual IList<Pagamento> Pagamentos { get; set; }
+        public virtual ICollection<Telefone> Telefones { get; set; }
     }
 }

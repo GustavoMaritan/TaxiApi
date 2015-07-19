@@ -6,8 +6,8 @@ namespace DadosSql.DataModel.Coperativa
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public int QtdeTelefones { get; set; }
+        public string DescricaoPlano { get; set; }
         public DateTime DataVencimento { get; set; }
-        public bool Recebido { get; set; }
+        public DateTime DataCadastro { get; set; }
     }
 }

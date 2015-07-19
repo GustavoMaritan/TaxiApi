@@ -76,6 +76,7 @@
         $scope.modal = false;
         
         function inicializaModel() {
+            $scope.recebido = false;
             $scope.model = {
                 Descricao: "",
                 Ativo: true,
@@ -85,20 +86,22 @@
                 Login: null,
                 Cnpj: "",
                 RazaoSocial: "",
-                QtdeTelefones: 0,
+                //QtdeTelefones: 0,
                 Endereco: "",
                 Bairro: "",
                 Cep: "",
                 Numero: "",
+                PlanoId:"",//
                 Telefones: [],
-                Controles: [{
+                Pagamentos: [{
                     DataVencimento: "",
-                    Recebido: false,
-                    Valor: ""
+                    DataPagamento:"",
+                    //Recebido: false,
+                    Valor: 0
                 }]
             };
         };
-
+        
         inicializaModel();
 
         $scope.post = function () {
@@ -123,6 +126,7 @@
 
         $scope.addTelefone = function () {
             $scope.model.Telefones.push({
+                OperadoraId:"",
                 Ddd: null,
                 Numero: null,
                 Ramal: null
@@ -137,13 +141,22 @@
             for (var i = 0; i < tel.length; i++) {
                 var ddd = tel[i].Ddd;
                 var num = tel[i].Numero;
-                if (ddd == null || ddd == "" || num == null || num == "") {
-                    toastr.error("DDD e Número são obrigatórios.", "Aviso");
+                var op = tel[i].OperadoraId;
+                if (ddd == null || ddd == "" || num == null || num == "" || op == null || op == "") {
+                    toastr.error("DDD , Número e Operadora são obrigatórios.", "Aviso");
                     valida = true;
                     break;
                 }
             }
             $scope.modal = valida;
+        };
+
+        $scope.setPago = function() {
+            console.log($scope.recebido);
+            if ($scope.recebido)
+                $scope.model.Pagamentos[0].DataPagamento = new Date();
+            else
+                $scope.model.Pagamentos[0].DataPagamento = null;
         };
     });
 
