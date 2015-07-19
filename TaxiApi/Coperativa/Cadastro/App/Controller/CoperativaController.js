@@ -71,7 +71,7 @@
         }
     });
 
-    app.controller('cadastroCtrl', function ($scope, buscarService) {
+    app.controller('cadastroCtrl', function ($scope, buscarService, dropService) {
         var user = usuarioLog();
         $scope.modal = false;
         
@@ -103,6 +103,8 @@
         };
         
         inicializaModel();
+
+        GetDrop($scope, dropService);
 
         $scope.post = function () {
             var a = $scope.model;
@@ -214,3 +216,12 @@
         };
     });
 })();
+
+function GetDrop($scope, dropService) {
+    dropService.getPlano().success(function(data) {
+        $scope.planos = data;
+    });
+    dropService.getOperadora().success(function (data) {
+        $scope.operadoras = data;
+    });
+}

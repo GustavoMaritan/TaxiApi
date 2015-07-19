@@ -3,6 +3,7 @@
     'headerController',
     'coperativaControllers',
     'serviceCoperativa',
+    'serviceDropDown',
     'directives',
     'routes'
 ]);

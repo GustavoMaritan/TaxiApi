@@ -140,6 +140,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Coperativa\Login\App\Directives\" />
+    <Folder Include="Views\Operadora\" />
     <Folder Include="Views\Plano\" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +150,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AplicativoController.cs" />
     <Compile Include="Controllers\CoperativaController.cs" />
+    <Compile Include="Controllers\OperadoraController.cs" />
     <Compile Include="Controllers\PlanoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,6 +207,7 @@
     <Content Include="Coperativa\Cadastro\App\Controller\headerController.js" />
     <Content Include="Coperativa\Cadastro\App\Directives\directives.js" />
     <Content Include="Coperativa\Cadastro\App\Service\coperativaService.js" />
+    <Content Include="Coperativa\Cadastro\App\Service\dropDownService.js" />
     <Content Include="Coperativa\Cadastro\index.html" />
     <Content Include="Coperativa\Cadastro\view\Crud\Editar.html" />
     <Content Include="Coperativa\Cadastro\view\Crud\Cadastro.html" />

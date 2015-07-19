@@ -72,9 +72,11 @@
                             <label class="control-label">Plano</label>
                             <select ng-model="model.PlanoId" class="form-control" required>
                                 <option value="">Selecione</option>
-                                <option value="1">Basico</option>
-                                <option value="2">Medio</option>
-                                <option value="3">Completo</option>
+                                <option ng-selected="{{plano.Id == model.PlanoId}}"
+                                        ng-repeat="plano in planos"
+                                        value="{{plano.Id}}">
+                                    {{plano.Descricao}}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -132,9 +134,11 @@
                                 <label class="control-label">Operadora</label>
                                 <select ng-model="telefone.OperadoraId" class="form-control">
                                     <option value="">Selecione</option>
-                                    <option value="1">Claro</option>
-                                    <option value="2">Tim</option>
-                                    <option value="3">Vivo</option>
+                                    <option ng-selected="{{operadora.Id == telefone.OperadoraId}}"
+                                            ng-repeat="operadora in operadoras"
+                                            value="{{operadora.Id}}">
+                                        {{operadora.Nome}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
