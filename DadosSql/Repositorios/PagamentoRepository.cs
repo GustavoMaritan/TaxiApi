@@ -1,4 +1,6 @@
-﻿using DadosSql.Contextos;
+﻿using System;
+using System.Data.Entity.Migrations;
+using DadosSql.Contextos;
 using DadosSql.Entities;
 
 namespace DadosSql.Repositorios
@@ -13,8 +15,24 @@ namespace DadosSql.Repositorios
                 DataVencimento = old.DataVencimento.AddMonths(1),
                 Valor = old.Valor,
             });
-
             ct.SaveChanges();
+        }
+
+        public void Put(Pagamento obj, Contexto ct)
+        {
+            try
+            {
+                ct.Pagamento.AddOrUpdate(obj);
+
+                if (obj.DataPagamento == null)
+                    return;
+
+                NewPagamento(obj, ct);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -69,7 +69,6 @@
     <Compile Include="Repositorios\AdministradorRepository.cs" />
     <Compile Include="Repositorios\AplicativoRepository.cs" />
     <Compile Include="Repositorios\BaseRepository.cs" />
-    <Compile Include="Repositorios\ControleMensalRepository.cs" />
     <Compile Include="Repositorios\CoperativaRepository.cs" />
     <Compile Include="Repositorios\OperadoraRepository.cs" />
     <Compile Include="Repositorios\PagamentoRepository.cs" />

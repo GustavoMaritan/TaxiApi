@@ -39,8 +39,8 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group col-xs-12">
-                            <label class="control-label" for="txtQtdeTelefones">Quantidade Telefones</label>
-                            <input class="form-control" id="txtQtdeTelefones" type="number" step="1" min="0" ng-model="model.QtdeTelefones" required mascara-int>
+                            <label class="control-label" for="txtDataVencimento">Data de Vencimento</label>
+                            <input class="form-control" id="txtDataVencimento" type="datetime" mascara-dt ng-model="model.Pagamentos[0].DataVencimento" required>
                         </div>
                     </div>
                     <div class="col-sm-8">
@@ -67,27 +67,26 @@
                             <input class="form-control" id="txtNumero" type="number" step="1" min="0" ng-model="model.Numero" required mascara-int>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <div class="form-group col-xs-12">
-                            <label class="control-label" for="txtDataVencimento">Data de Vencimento</label>
-                            <input class="form-control" id="txtDataVencimento" type="datetime" mascara-dt ng-model="model.Controles[0].DataVencimento" required>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group col-xs-12">
-                            <label class="control-label">Valor</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">R$</span>
-                                <input type="text" class="form-control" ng-model="model.Controles[0].Valor" required mascara-money>
-                            </div>
+                            <label class="control-label">Plano</label>
+                            <select ng-model="model.PlanoId" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option ng-selected="{{plano.Id == model.PlanoId}}"
+                                        ng-repeat="plano in planos"
+                                        value="{{plano.Id}}">
+                                    {{plano.Descricao}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group col-xs-12">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" ng-model="model.Controles[0].Recebido">Pagamento Recebido
-                                </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="chkPagamento" ng-model="recebido" ng-click="setPago()">
+                                </span>
+                                <label class="form-control tdValores" for="chkPagamento">Pagamento Recebido</label>
                             </div>
                         </div>
                     </div>
@@ -131,6 +130,17 @@
                             <div class="form-group col-sm-4">
                                 <input class="form-control" id="txtRamal" placeholder="Ramal" type="text" ng-model="telefone.Ramal" mascara-int>
                             </div>
+                            <div class="col-sm-12 form-group">
+                                <label class="control-label">Operadora</label>
+                                <select ng-model="telefone.OperadoraId" class="form-control">
+                                    <option value="">Selecione</option>
+                                    <option ng-selected="{{operadora.Id == telefone.OperadoraId}}"
+                                            ng-repeat="operadora in operadoras"
+                                            value="{{operadora.Id}}">
+                                        {{operadora.Nome}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,28 +152,4 @@
         </div>
     </div>
 </div>
-<style>
-    .modis {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1050;
-        overflow: hidden;
-        -webkit-overflow-scrolling: touch;
-        outline: 0;
-        background-color: rgba(255,255,255,0.7);
-    }
 
-    .modis-body {
-        position: relative;
-        padding: 20px;
-        max-height: 379px !important;
-        overflow-y: auto;
-    }
-
-    .modal-footer {
-        border-top: 0px solid #e5e5e5 !important;
-    }
-</style>

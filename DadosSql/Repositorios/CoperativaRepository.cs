@@ -50,7 +50,7 @@ namespace DadosSql.Repositorios
             {
                 try
                 {
-                    new ControleMensalRepository().Put(obj.Pagamentos.First(), ct);
+                    new PagamentoRepository().Put(obj.Pagamentos.First(), ct);
 
                     if (obj.Telefones.Any())
                         new TelefoneRepository().Put(obj.Telefones, obj.Id, ct);
@@ -59,7 +59,7 @@ namespace DadosSql.Repositorios
                     obj.Telefones = null;
 
                     ct.Cooperativa.AddOrUpdate(obj);
-                    var a = ct.SaveChanges();
+                    ct.SaveChanges();
                     trans.Commit();
                 }
                 catch (Exception ex)

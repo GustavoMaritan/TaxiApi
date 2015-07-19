@@ -49,7 +49,7 @@
             var index1 = $scope.filteredTodos.indexOf(todo);
             var id = $scope.todos[index].Id;
             buscarService.delete(id)
-                .success(function(data) {
+                .success(function (data) {
                     if (data.error == "") {
                         toastr.success("Coperativa excluida com sucesso.");
                         $scope.todos.splice(index, 1);
@@ -59,7 +59,7 @@
                         toastr.error(data.error);
                     }
                 })
-                .error(function() {
+                .error(function () {
                     toastr.error("Erro ao excluir coperativa.");
                 });
         };
@@ -74,7 +74,7 @@
     app.controller('cadastroCtrl', function ($scope, buscarService, dropService) {
         var user = usuarioLog();
         $scope.modal = false;
-        
+
         function inicializaModel() {
             $scope.recebido = false;
             $scope.model = {
@@ -91,17 +91,17 @@
                 Bairro: "",
                 Cep: "",
                 Numero: "",
-                PlanoId:"",//
+                PlanoId: "",//
                 Telefones: [],
                 Pagamentos: [{
                     DataVencimento: "",
-                    DataPagamento:"",
+                    DataPagamento: "",
                     //Recebido: false,
                     Valor: 0
                 }]
             };
         };
-        
+
         inicializaModel();
 
         GetDrop($scope, dropService);
@@ -128,7 +128,7 @@
 
         $scope.addTelefone = function () {
             $scope.model.Telefones.push({
-                OperadoraId:"",
+                OperadoraId: "",
                 Ddd: null,
                 Numero: null,
                 Ramal: null
@@ -153,7 +153,7 @@
             $scope.modal = valida;
         };
 
-        $scope.setPago = function() {
+        $scope.setPago = function () {
             console.log($scope.recebido);
             if ($scope.recebido)
                 $scope.model.Pagamentos[0].DataPagamento = new Date();
@@ -162,13 +162,15 @@
         };
     });
 
-    app.controller('editarCtrl', function ($scope, buscarService, coperativa) {
+    app.controller('editarCtrl', function ($scope, buscarService, dropService, coperativa) {
+
+        GetDrop($scope, dropService);
+
         if (coperativa.status == 200) {
             $scope.model = coperativa.data;
         }
-        
         $scope.modal = false;
-        
+
         $scope.put = function () {
             var a = $scope.model;
             buscarService.put(a)
@@ -191,7 +193,8 @@
 
         $scope.addTelefone = function () {
             $scope.model.Telefones.push({
-                CoperativaId: $scope.model.Id,
+                CooperativaId: $scope.model.Id,
+                OperadoraId: "",
                 Ddd: null,
                 Numero: null,
                 Ramal: null
@@ -206,19 +209,28 @@
             for (var i = 0; i < tel.length; i++) {
                 var ddd = tel[i].Ddd;
                 var num = tel[i].Numero;
-                if (ddd == null || ddd == "" || num == null || num == "") {
-                    toastr.error("DDD e Número são obrigatórios.", "Aviso");
+                var op = tel[i].OperadoraId;
+                if (ddd == null || ddd == "" || num == null || num == "" || op == null || op == "") {
+                    toastr.error("DDD , Número e Operadora são obrigatórios.", "Aviso");
                     valida = true;
                     break;
                 }
             }
             $scope.modal = valida;
         };
+        
+        $scope.setPago = function () {
+            console.log($scope.recebido);
+            if ($scope.recebido)
+                $scope.model.Pagamentos[0].DataPagamento = new Date();
+            else
+                $scope.model.Pagamentos[0].DataPagamento = null;
+        };
     });
 })();
 
 function GetDrop($scope, dropService) {
-    dropService.getPlano().success(function(data) {
+    dropService.getPlano().success(function (data) {
         $scope.planos = data;
     });
     dropService.getOperadora().success(function (data) {
