@@ -3,7 +3,10 @@
 
     app.controller('headerCtrl', function ($scope) {
 
-        $scope.nomeUsuario = usuarioLog().nome;
+        var usua = usuarioLog();
+
+        $scope.nomeUsuario = usua.nome;
+        $scope.id = usua.id;
 
         $scope.sair = function () {
             localStorage["usuarioId"] = "";

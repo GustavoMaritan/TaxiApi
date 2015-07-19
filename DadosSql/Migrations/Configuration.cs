@@ -18,18 +18,18 @@ namespace DadosSql.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            context.Operadora.AddOrUpdate(
-              x => x.Nome, new Operadora("Claro"), new Operadora("Tim"), new Operadora("Vivo"));
+            //context.Operadora.AddOrUpdate(
+            //  x => x.Nome, new Operadora("Claro"), new Operadora("Tim"), new Operadora("Vivo"));
 
-            context.Administrador.AddOrUpdate(
-                new Administrador
-                {
-                    Email = "gustavo@gmail.com",
-                    Login = "gustavo",
-                    Nome = "Gustavo",
-                    Senha = "123456"
-                }
-                );
+            //context.Administrador.AddOrUpdate(
+            //    new Administrador
+            //    {
+            //        Email = "gustavo@gmail.com",
+            //        Login = "gustavo",
+            //        Nome = "Gustavo",
+            //        Senha = "123456"
+            //    }
+            //);
             //
         }
     }

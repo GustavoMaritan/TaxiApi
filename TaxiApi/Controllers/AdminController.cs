@@ -1,6 +1,8 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using DadosSql.Entities;
 using DadosSql.Repositorios;
+using Newtonsoft.Json;
 
 namespace TaxiApi.Controllers
 {
@@ -20,16 +22,68 @@ namespace TaxiApi.Controllers
             return Json(new { error = "Usuário não encontrado." });
         }
 
-        [HttpPost]
-        public IHttpActionResult Post(Administrador usua)
-        {
-            var user = new AdministradorRepository().Post(usua);
-            return Ok(Json(user));
-        }
-
         public dynamic Get()
         {
-            return Json(new {nome = "Esteves"});
+            var admins = new AdministradorRepository().GetAll();
+
+            return Json(admins, new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+        }
+
+        [HttpGet]
+        public dynamic Get(string id)
+        {
+            var cop = new AdministradorRepository().Get(int.Parse(id));
+            return Json(cop, new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+        }
+
+        [HttpPost]
+        public dynamic Post(Administrador usua)
+        {
+            try
+            {
+                var user = new AdministradorRepository().Post(usua);
+                return Json(new { error = "" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
+
+        [HttpPut]
+        public dynamic Put(Administrador usua)
+        {
+            try
+            {
+                new AdministradorRepository().Put(usua);
+                return Json(new { error = "" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
+
+        [HttpDelete]
+        public dynamic Delete(int id)
+        {
+            try
+            {
+                new AdministradorRepository().Delete(id);
+                return Json(new { error = "" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
     }
 }

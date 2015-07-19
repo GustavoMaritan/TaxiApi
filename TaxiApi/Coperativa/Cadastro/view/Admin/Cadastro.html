@@ -1,0 +1,48 @@
+﻿<h3 class="page-header">Administador</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-inverse">
+            <div class="panel-heading">
+                <h4 class="panel-title">Cadastro</h4>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" ng-submit="post()" method="POST">
+                    <div class="col-sm-12">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtNome">Nome</label>
+                            <input class="form-control" id="txtNome" placeholder="Nome" type="text" ng-model="model.Nome" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtEmail">Email</label>
+                            <input class="form-control" id="txtEmail" placeholder="Email" type="email" ng-model="model.Email" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtLogin">Login</label>
+                            <input class="form-control" id="txtLogin" placeholder="Login" type="text" ng-model="model.Login" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtSenha">Senha</label>
+                            <input class="form-control" id="txtSenha" placeholder="Senha" type="password" ng-model="model.Senha" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group col-xs-12 text-right">
+                            <a href="#/Admin/Buscar" class="btn btn-sm btn-danger">
+                                <i class="fa fa-remove"></i>Cancelar
+                            </a>
+                            <button class="btn btn-sm btn-success" type="submit">
+                                <i class="fa fa-check"></i>Cadastrar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

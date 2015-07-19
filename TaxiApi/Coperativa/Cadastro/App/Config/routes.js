@@ -52,6 +52,30 @@
                     }
                 }
             })
+            .when('/Admin/Buscar', {
+                templateUrl: 'view/Admin/Grid.html',
+                controller: 'buscaAdmCtrl',
+                resolve: {
+                    "listAdmin": function (adminService) {
+                        usuarioLog();
+                        return adminService.get();
+                    }
+                }
+            })
+            .when('/Admin/Cadastro', {
+                templateUrl: 'view/Admin/Cadastro.html',
+                controller: 'cadastroAdmCtrl'
+            })
+            .when('/Admin/Editar/:id', {
+                templateUrl: 'view/Admin/Editar.html',
+                controller: 'editarAdmCtrl',
+                resolve: {
+                    "admin": function (adminService, $route) {
+                        usuarioLog();
+                        return adminService.getId($route.current.params.id);
+                    }
+                }
+            })
             .otherwise({ redirectTo: '/Coperativa/Buscar' });;
     });
 })();

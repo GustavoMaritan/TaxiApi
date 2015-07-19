@@ -36,10 +36,19 @@
             </a>
             <ul class="dropdown-menu animated fadeInLeft">
                 <li class="arrow"></li>
-                <li><a href="">Perfil</a></li>
+                <li id="liTeste"><a href="#/Admin/Editar/{{ id }}">Perfil</a></li>
                 <li class="divider"></li>
                 <li><a href="" ng-click="sair()">Sair</a></li>
             </ul>
         </li>
     </ul>
 </div>
+
+<script>
+    $('#liTeste').click(function () {
+        $('#divMenu ul.sub-menu li').removeClass();
+        $('#divMenu > li').removeClass('active');
+        $('#liAdmin').addClass('active');
+        $('#liAdmin > a').trigger('click');
+    });
+</script>

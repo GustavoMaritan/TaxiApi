@@ -3,9 +3,11 @@
     'headerController',
     'coperativaControllers',
     'operadoraControllers',
+    'adminControllers',
     'serviceCoperativa',
     'serviceDropDown',
     'serviceOperadora',
+    'serviceAdmin',
     'directives',
     'routes'
 ]);

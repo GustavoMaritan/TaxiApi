@@ -209,12 +209,17 @@
     <Content Include="Coperativa\Cadastro\App\Config\routes.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\CoperativaController.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\headerController.js" />
+    <Content Include="Coperativa\Cadastro\App\Controller\AdminController.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\OperadoraController.js" />
     <Content Include="Coperativa\Cadastro\App\Directives\directives.js" />
     <Content Include="Coperativa\Cadastro\App\Service\coperativaService.js" />
     <Content Include="Coperativa\Cadastro\App\Service\dropDownService.js" />
+    <Content Include="Coperativa\Cadastro\App\Service\adminService.js" />
     <Content Include="Coperativa\Cadastro\App\Service\operadoraService.js" />
     <Content Include="Coperativa\Cadastro\index.html" />
+    <Content Include="Coperativa\Cadastro\view\Admin\Cadastro.html" />
+    <Content Include="Coperativa\Cadastro\view\Admin\Editar.html" />
+    <Content Include="Coperativa\Cadastro\view\Admin\Grid.html" />
     <Content Include="Coperativa\Cadastro\view\Crud\Editar.html" />
     <Content Include="Coperativa\Cadastro\view\Crud\Cadastro.html" />
     <Content Include="Coperativa\Cadastro\view\Crud\Grid.html" />
