@@ -140,9 +140,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Coperativa\Login\App\Directives\" />
-    <Folder Include="Views\Operadora\" />
-    <Folder Include="Views\Plano\" />
-    <Folder Include="Views\TipoCooperativa\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
