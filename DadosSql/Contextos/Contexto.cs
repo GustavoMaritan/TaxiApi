@@ -1,7 +1,6 @@
 ﻿using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Diagnostics;
 using DadosSql.Entities;
 using DadosSql.EntityMap;
 
@@ -21,6 +20,7 @@ namespace DadosSql.Contextos
         public DbSet<Pagamento> Pagamento { get; set; }
         public DbSet<Plano> Plano { get; set; }
         public DbSet<Telefone> Telefone { get; set; }
+        public DbSet<TipoCooperativa> TipoCooperativa { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -41,6 +41,7 @@ namespace DadosSql.Contextos
             modelBuilder.Configurations.Add(new PagamentoMap());
             modelBuilder.Configurations.Add(new PlanoMap());
             modelBuilder.Configurations.Add(new TelefoneMap());
+            modelBuilder.Configurations.Add(new TipoCooperativaMap());
         }
     }
 }

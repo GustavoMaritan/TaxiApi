@@ -9,5 +9,8 @@
         this.getOperadora = function () {
             return $http.get(caminhoApi + "/Operadora");
         };
+        this.getTipoCoop = function () {
+            return $http.get(caminhoApi + "/TipoCooperativa");
+        };
     });
 })();

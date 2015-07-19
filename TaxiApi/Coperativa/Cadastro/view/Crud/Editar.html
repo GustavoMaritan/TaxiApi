@@ -80,13 +80,27 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="form-group col-xs-12">
+                            <label class="control-label">Tipo Cooperativa</label>
+                            <select ng-model="model.TipoCooperativaId" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option ng-selected="{{tipo.Id == model.TipoCooperativaId}}"
+                                        ng-repeat="tipo in tiposCooperativa"
+                                        value="{{tipo.Id}}">
+                                    {{tipo.Descricao}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label"> </label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input type="checkbox" id="chkPagamento" ng-model="recebido" ng-click="setPago()">
                                 </span>
-                                <label class="form-control tdValores" for="chkPagamento">Pagamento Recebido</label>
+                                <label class="form-control" for="chkPagamento">Pagamento Recebido</label>
                             </div>
                         </div>
                     </div>

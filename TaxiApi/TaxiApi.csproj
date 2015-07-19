@@ -142,6 +142,7 @@
     <Folder Include="Coperativa\Login\App\Directives\" />
     <Folder Include="Views\Operadora\" />
     <Folder Include="Views\Plano\" />
+    <Folder Include="Views\TipoCooperativa\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Controllers\CoperativaController.cs" />
     <Compile Include="Controllers\OperadoraController.cs" />
     <Compile Include="Controllers\PlanoController.cs" />
+    <Compile Include="Controllers\TipoCooperativaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

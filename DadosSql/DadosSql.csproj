@@ -58,12 +58,14 @@
     <Compile Include="Entities\Pagamento.cs" />
     <Compile Include="Entities\Plano.cs" />
     <Compile Include="Entities\Telefone.cs" />
+    <Compile Include="Entities\TipoCooperativa.cs" />
     <Compile Include="EntityMap\AdministradorMap.cs" />
     <Compile Include="EntityMap\CooperativaMap.cs" />
     <Compile Include="EntityMap\OperadoraMap.cs" />
     <Compile Include="EntityMap\PagamentoMap.cs" />
     <Compile Include="EntityMap\PlanoMap.cs" />
     <Compile Include="EntityMap\TelefoneMap.cs" />
+    <Compile Include="EntityMap\TipoCooperativaMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AdministradorRepository.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Repositorios\PagamentoRepository.cs" />
     <Compile Include="Repositorios\PlanoRepository.cs" />
     <Compile Include="Repositorios\TelefoneRepository.cs" />
+    <Compile Include="Repositorios\TipoCooperativaRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

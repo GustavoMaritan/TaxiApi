@@ -16,6 +16,10 @@ namespace DadosSql.EntityMap
                 .WithMany(c => c.Cooperativas)
                 .HasForeignKey(x => x.PlanoId);
 
+            HasRequired(c => c.TipoCooperativa)
+                .WithMany(c => c.Cooperativas)
+                .HasForeignKey(x => x.TipoCooperativaId);
+
             Property(x => x.Ativo).IsRequired();
             Property(x => x.Excluido).IsRequired();
             Property(x => x.DataCadastro).IsRequired();

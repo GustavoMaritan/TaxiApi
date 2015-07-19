@@ -17,10 +17,12 @@ namespace DadosSql.Repositorios
                         Id = x.Id,
                         Descricao = x.Descricao,
                         Bairro = x.Bairro,
+                        Tipo = x.TipoCooperativaId,
                         Telefones = x.Telefones.Select(y => new TelefoneApp
                         {
                             Ddd = y.Ddd,
-                            Numero = y.Numero
+                            Numero = y.Numero,
+                            Operadora = y.Operadora.Nome
                         }).ToList()
                     }).ToList();
             }

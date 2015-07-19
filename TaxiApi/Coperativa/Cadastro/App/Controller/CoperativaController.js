@@ -236,4 +236,7 @@ function GetDrop($scope, dropService) {
     dropService.getOperadora().success(function (data) {
         $scope.operadoras = data;
     });
+    dropService.getTipoCoop().success(function (data) {
+        $scope.tiposCooperativa = data;
+    });
 }
