@@ -28,6 +28,30 @@
                     }
                 }
             })
+            .when('/Operadora/Buscar', {
+                templateUrl: 'view/Operadora/Grid.html',
+                controller: 'buscaOprCtrl',
+                resolve: {
+                    "listOperadora": function (operadoraService) {
+                        usuarioLog();
+                        return operadoraService.get();
+                    }
+                }
+            })
+            .when('/Operadora/Cadastro', {
+                templateUrl: 'view/Operadora/Cadastro.html',
+                controller: 'cadastroOprCtrl'
+            })
+            .when('/Operadora/Editar/:id', {
+                templateUrl: 'view/Operadora/Editar.html',
+                controller: 'editarOprCtrl',
+                resolve: {
+                    "operadora": function (operadoraService, $route) {
+                        usuarioLog();
+                        return operadoraService.getId($route.current.params.id);
+                    }
+                }
+            })
             .otherwise({ redirectTo: '/Coperativa/Buscar' });;
     });
 })();
