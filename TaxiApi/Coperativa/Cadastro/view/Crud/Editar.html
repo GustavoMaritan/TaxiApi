@@ -1,108 +1,111 @@
-﻿<div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Editar Cooperativa</h3>
-        </div>
-        <div class="panel-body">
-            <form class="form-horizontal" ng-submit="put()" method="POST">
-                <div class="col-sm-12">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtRazaoSocial">Razão Social</label>
-                        <input class="form-control" id="txtRazaoSocial" type="text" ng-model="model.RazaoSocial" required>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtDescricao">Descricao</label>
-                        <input class="form-control" id="txtDescricao" type="text" ng-model="model.Descricao" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtLogin">Login Default</label>
-                        <input class="form-control" id="txtLogin" type="text" ng-model="model.Login" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtSenha">Senha Default</label>
-                        <input class="form-control" id="txtSenha" type="text" ng-model="model.Senha" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtCnpj">Cnpj</label>
-                        <input class="form-control" maxlength="18" id="txtCnpj" type="text" ng-model="model.Cnpj" required mascara-cnpj>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtQtdeTelefones">Quantidade Telefones</label>
-                        <input class="form-control" id="txtQtdeTelefones" type="number" step="1" min="0" ng-model="model.QtdeTelefones" required mascara-int>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtBairro">Bairro</label>
-                        <input class="form-control" id="txtBairro" type="text" ng-model="model.Bairro" required>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtCep">Cep</label>
-                        <input class="form-control" id="txtCep" type="text" ng-model="model.Cep" required mascara-cep>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtEndereco">Endereço</label>
-                        <input class="form-control" id="txtEndereco" type="text" ng-model="model.Endereco" required>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtNumero">Número</label>
-                        <input class="form-control" id="txtNumero" type="number" step="1" min="0" ng-model="model.Numero" required mascara-int>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="txtDataVencimento">Data de Vencimento</label>
-                        <input class="form-control" id="txtDataVencimento" type="datetime" mascara-dt ng-model="model.Controles[0].DataVencimento" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label">Valor</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">R$</span>
-                            <input type="text" class="form-control" ng-model="model.Controles[0].Valor" required mascara-money>
+﻿<h3 class="page-header">Coperativas</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-inverse">
+            <div class="panel-heading">
+                <h4 class="panel-title">Editar</h4>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" ng-submit="put()" method="POST">
+                    <div class="col-sm-12">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtRazaoSocial">Razão Social</label>
+                            <input class="form-control" id="txtRazaoSocial" type="text" ng-model="model.RazaoSocial" required>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="form-group col-xs-12">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" ng-model="model.Controles[0].Recebido">Pagamento Recebido
-                            </label>
+                    <div class="col-sm-12">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtDescricao">Descricao</label>
+                            <input class="form-control" id="txtDescricao" type="text" ng-model="model.Descricao" required>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="form-group col-xs-12 text-right">
-                        <a href="" ng-click="modal = true" class="btn btn-sm btn-warning">
-                            <i class="fa fa-phone"></i>Telefones
-                        </a>
-                        <a href="#/Coperativa/Buscar" class="btn btn-sm btn-danger">
-                            <i class="fa fa-remove"></i>Cancelar
-                        </a>
-                        <button class="btn btn-sm btn-success" type="submit">
-                            <i class="fa fa-check"></i>Salvar
-                        </button>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtLogin">Login Default</label>
+                            <input class="form-control" id="txtLogin" type="text" ng-model="model.Login" required>
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtSenha">Senha Default</label>
+                            <input class="form-control" id="txtSenha" type="text" ng-model="model.Senha" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtCnpj">Cnpj</label>
+                            <input class="form-control" maxlength="18" id="txtCnpj" type="text" ng-model="model.Cnpj" required mascara-cnpj>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtQtdeTelefones">Quantidade Telefones</label>
+                            <input class="form-control" id="txtQtdeTelefones" type="number" step="1" min="0" ng-model="model.QtdeTelefones" required mascara-int>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtBairro">Bairro</label>
+                            <input class="form-control" id="txtBairro" type="text" ng-model="model.Bairro" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtCep">Cep</label>
+                            <input class="form-control" id="txtCep" type="text" ng-model="model.Cep" required mascara-cep>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtEndereco">Endereço</label>
+                            <input class="form-control" id="txtEndereco" type="text" ng-model="model.Endereco" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtNumero">Número</label>
+                            <input class="form-control" id="txtNumero" type="number" step="1" min="0" ng-model="model.Numero" required mascara-int>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="txtDataVencimento">Data de Vencimento</label>
+                            <input class="form-control" id="txtDataVencimento" type="datetime" mascara-dt ng-model="model.Controles[0].DataVencimento" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label">Valor</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">R$</span>
+                                <input type="text" class="form-control" ng-model="model.Controles[0].Valor" required mascara-money>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group col-xs-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="model.Controles[0].Recebido">Pagamento Recebido
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group col-xs-12 text-right">
+                            <a href="" ng-click="modal = true" class="btn btn-sm btn-warning">
+                                <i class="fa fa-phone"></i>Telefones
+                            </a>
+                            <a href="#/Coperativa/Buscar" class="btn btn-sm btn-danger">
+                                <i class="fa fa-remove"></i>Cancelar
+                            </a>
+                            <button class="btn btn-sm btn-success" type="submit">
+                                <i class="fa fa-check"></i>Cadastrar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <div class="modis" ng-show="modal">

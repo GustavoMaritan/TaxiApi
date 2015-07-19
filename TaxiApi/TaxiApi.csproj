@@ -139,6 +139,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\plugins\NewFolder1\" />
+    <Folder Include="assets\plugins\NewFolder2\" />
     <Folder Include="Coperativa\Login\App\Directives\" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +156,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\plugins\dataTable\data-table.css" />
+    <Content Include="assets\plugins\dataTable\jquery.dataTables.js" />
     <Content Include="Comum\content\bootstrap\bootstrap-theme.css" />
     <Content Include="Comum\content\bootstrap\bootstrap-theme.css.map" />
     <Content Include="Comum\content\bootstrap\bootstrap-theme.min.css" />
@@ -174,6 +178,8 @@
     <Content Include="Comum\content\css\ui-buttons.css" />
     <Content Include="Comum\content\css\ui-notifications.css" />
     <Content Include="Comum\content\taxi.png" />
+    <Content Include="Comum\content\taxi1.png" />
+    <Content Include="Comum\content\taxi2.png" />
     <Content Include="Comum\content\toastr\toastr.css" />
     <Content Include="Comum\content\toastr\toastr.less" />
     <Content Include="Comum\content\toastr\toastr.min.css" />
@@ -195,6 +201,36 @@
     <Content Include="Comum\Scripts\ng-infinite-scroll.min.js" />
     <Content Include="Comum\Scripts\toastr.min.js" />
     <Content Include="Comum\Scripts\ui-bootstrap-tpls-0.13.0.min.js" />
+    <Content Include="Comum\xxx\analytics.js" />
+    <Content Include="assets\css\animate.min.css" />
+    <Content Include="assets\js\apps.min.js" />
+    <Content Include="assets\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\js\dashboard.min.js" />
+    <Content Include="assets\plugins\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="assets\plugins\bootstrap-datepicker\css\datepicker3.css" />
+    <Content Include="assets\css\theme\default.css" />
+    <Content Include="assets\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\plugins\jquery\jquery-1.9.1.min.js" />
+    <Content Include="assets\plugins\jquery-jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="assets\plugins\jquery-jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="assets\plugins\jquery-jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="assets\plugins\jquery\jquery-migrate-1.1.0.min.js" />
+    <Content Include="assets\plugins\jquery-ui\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="assets\plugins\jquery-ui\ui\minified\jquery-ui.min.js" />
+    <Content Include="assets\plugins\jquery-cookie\jquery.cookie.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.pie.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.resize.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.time.min.js" />
+    <Content Include="assets\plugins\gritter\css\jquery.gritter.css" />
+    <Content Include="assets\plugins\gritter\js\jquery.gritter.js" />
+    <Content Include="assets\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="assets\plugins\sparkline\jquery.sparkline.js" />
+    <Content Include="assets\plugins\pace\pace.min.js" />
+    <Content Include="assets\css\style-responsive.min.css" />
+    <Content Include="assets\css\style.min.css" />
     <Content Include="Coperativa\Cadastro\App\app.js" />
     <Content Include="Coperativa\Cadastro\App\Config\routes.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\CoperativaController.js" />
@@ -206,6 +242,8 @@
     <Content Include="Coperativa\Cadastro\view\Crud\Cadastro.html" />
     <Content Include="Coperativa\Cadastro\view\Crud\Grid.html" />
     <Content Include="Coperativa\Cadastro\view\header.html" />
+    <Content Include="Coperativa\Cadastro\view\MenuLateral.html" />
+    <Content Include="Coperativa\Cadastro\view\Topo.html" />
     <Content Include="Coperativa\common.js" />
     <Content Include="Coperativa\Login\App\app.js" />
     <Content Include="Coperativa\Login\App\Config\routes.js" />
