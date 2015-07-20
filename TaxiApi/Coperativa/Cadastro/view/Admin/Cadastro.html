@@ -6,14 +6,16 @@
                 <h4 class="panel-title">Cadastro</h4>
             </div>
             <div class="panel-body">
-                <form class="form-horizontal" ng-submit="post()" method="POST">
-                    <div class="col-sm-12">
+                <form id="form" class="form-horizontal" ng-submit="post()" method="POST" enctype="multipart/form-data">
+                    <div class="col-sm-3">
+                        <input type="file" name="file" style="display: none;" id="pdffile" accept="image/*" />
+                        <img onclick="$('#pdffile').click();" class="imgPerfil" id="imgPerfil" src="../../../../Comum/content/taxi1.png" alt="" />
+                    </div>
+                    <div class="col-sm-9">
                         <div class="form-group col-xs-12">
                             <label class="control-label" for="txtNome">Nome</label>
                             <input class="form-control" id="txtNome" placeholder="Nome" type="text" ng-model="model.Nome" required>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="form-group col-xs-12">
                             <label class="control-label" for="txtEmail">Email</label>
                             <input class="form-control" id="txtEmail" placeholder="Email" type="email" ng-model="model.Email" required>
@@ -46,3 +48,60 @@
         </div>
     </div>
 </div>
+<style>
+    .imgPerfil {
+        width: 120px; 
+        height: 120px;
+        cursor: pointer;
+    }
+</style>
+<script>
+    var files;
+    $("#pdffile").change(function (event) {
+        var a = $(this).val().split('\\');
+        $('#subfile').val(a.length > 0 ? a[a.length - 1] : "");
+
+        var reader = new FileReader();
+        $(reader).load(function (event) {
+            $("#imgPerfil").attr("src", event.target.result);
+        });
+        reader.readAsDataURL(event.target.files[0]);
+        return true;
+    });
+    $('#form').on('submit', function() {
+        if (files != null && files.length > 0) {
+            if ($('#pdffile').val().lastIndexOf('.png') === -1 && $('#pdffile').val().lastIndexOf('.jpeg') === -1) {
+                toastr.error("Somente imagem png ou jpeg");
+                $('#pdffile').val('');
+                return;
+            }
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append("file" + x, files[x]);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: caminhoApi + 'Upload/UploadFile?id=asas',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+                        console.log(result);
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3 + " " + p4;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).Message;
+                        console.log(err);
+                    }
+                });
+            } else {
+                toastr.error("This browser doesn't support HTML5 file uploads!");
+            }
+        }
+    });
+    $('#pdffile').on('change', function (e) {
+        files = e.target.files;
+    });
+</script>

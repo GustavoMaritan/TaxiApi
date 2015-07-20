@@ -151,6 +151,7 @@
     <Compile Include="Controllers\OperadoraController.cs" />
     <Compile Include="Controllers\PlanoController.cs" />
     <Compile Include="Controllers\TipoCooperativaController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
