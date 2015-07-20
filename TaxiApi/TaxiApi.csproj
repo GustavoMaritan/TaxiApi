@@ -160,6 +160,7 @@
   <ItemGroup>
     <Content Include="Comum\content\css\Comum.css" />
     <Content Include="Comum\content\css\style.css" />
+    <Content Include="Comum\content\perfil\perfil.jpg" />
     <Content Include="Comum\content\taxi.png" />
     <Content Include="Comum\content\taxi1.png" />
     <Content Include="Comum\content\taxi2.png" />

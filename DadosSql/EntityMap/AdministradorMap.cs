@@ -12,6 +12,7 @@ namespace DadosSql.EntityMap
             Property(x => x.Senha).IsRequired().HasMaxLength(30);
             Property(x => x.Nome).IsRequired().HasMaxLength(50);
             Property(x => x.Login).IsRequired().HasMaxLength(30);
+            Property(x => x.Image).IsOptional();
         }
     }
 }

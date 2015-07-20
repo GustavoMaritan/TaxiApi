@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web.Http;
 using DadosSql.Entities;
 using DadosSql.Repositorios;
@@ -37,6 +38,15 @@ namespace TaxiApi.Controllers
         public dynamic Get(string id)
         {
             var cop = new AdministradorRepository().Get(int.Parse(id));
+
+            if (cop.Image != null)
+            {
+                var uploadPath = AppDomain.CurrentDomain.BaseDirectory + @"\Comum\content\perfil\";
+                var caminhoArquivo = Path.Combine(uploadPath, cop.Image);
+                if (!File.Exists(caminhoArquivo))
+                    cop.Image = null;
+            }
+
             return Json(cop, new JsonSerializerSettings()
             {
                 NullValueHandling = NullValueHandling.Ignore,
