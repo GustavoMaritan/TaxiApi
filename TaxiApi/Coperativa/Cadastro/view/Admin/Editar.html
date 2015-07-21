@@ -9,7 +9,7 @@
                 <form id="form" class="form-horizontal" ng-submit="put()" method="POST" enctype="multipart/form-data">
                     <div class="col-sm-3">
                         <input type="file" name="file" onchange="angular.element(this).scope().fileNameChanged(this)" style="display: none;" id="pdffile" accept="image/*" />
-                        <img onclick="$('#pdffile').click();" class="imgPerfil" id="imgPerfil" src="../../../../Comum/content/perfil/{{ imagem }}" alt="" />
+                        <img onclick="$('#pdffile').click();" class="imgPerfil" id="imgPerfil" src="../../Comum/content/perfil/{{ imagem }}" alt="" />
                     </div>
                     <div class="col-sm-9">
                         <div class="form-group col-xs-12">
@@ -24,13 +24,13 @@
                     <div class="col-sm-6">
                         <div class="form-group col-xs-12">
                             <label class="control-label" for="txtLogin">Login</label>
-                            <input class="form-control" id="txtLogin" placeholder="Login" type="text" ng-model="model.Login" required>
+                            <input class="form-control" id="txtLogin" autocomplete="off" placeholder="Login" type="text" ng-model="model.Login" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group col-xs-12">
                             <label class="control-label" for="txtSenha">Senha</label>
-                            <input class="form-control" id="txtSenha" placeholder="Senha" type="password" ng-model="model.Senha" required>
+                            <input class="form-control" id="txtSenha" autocomplete="off" placeholder="Senha" type="password" ng-model="model.Senha" required>
                         </div>
                     </div>
                     <div class="col-sm-12">
