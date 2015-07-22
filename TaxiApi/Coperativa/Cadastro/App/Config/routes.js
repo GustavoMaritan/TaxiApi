@@ -76,6 +76,30 @@
                     }
                 }
             })
+            .when('/Plano/Buscar', {
+                templateUrl: 'view/Plano/Grid.html',
+                controller: 'buscaPlnCtrl',
+                resolve: {
+                    "listPlanos": function (adminService) {
+                        usuarioLog();
+                        return adminService.get();
+                    }
+                }
+            })
+            .when('/Plano/Cadastro', {
+                templateUrl: 'view/Plano/Cadastro.html',
+                controller: 'cadastroPlnCtrl'
+            })
+            .when('/Plano/Editar/:id', {
+                templateUrl: 'view/Plano/Editar.html',
+                controller: 'editarPlnCtrl',
+                resolve: {
+                    "plano": function (adminService, $route) {
+                        usuarioLog();
+                        return adminService.getId($route.current.params.id);
+                    }
+                }
+            })
             .otherwise({ redirectTo: '/Coperativa/Buscar' });;
     });
 })();

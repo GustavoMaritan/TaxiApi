@@ -212,11 +212,13 @@
     <Content Include="Coperativa\Cadastro\App\Controller\CoperativaController.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\headerController.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\AdminController.js" />
+    <Content Include="Coperativa\Cadastro\App\Controller\PlanosController.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\OperadoraController.js" />
     <Content Include="Coperativa\Cadastro\App\Directives\directives.js" />
     <Content Include="Coperativa\Cadastro\App\Service\coperativaService.js" />
     <Content Include="Coperativa\Cadastro\App\Service\dropDownService.js" />
     <Content Include="Coperativa\Cadastro\App\Service\adminService.js" />
+    <Content Include="Coperativa\Cadastro\App\Service\planosService.js" />
     <Content Include="Coperativa\Cadastro\App\Service\operadoraService.js" />
     <Content Include="Coperativa\Cadastro\index.html" />
     <Content Include="Coperativa\Cadastro\view\Admin\Cadastro.html" />
@@ -230,6 +232,9 @@
     <Content Include="Coperativa\Cadastro\view\Operadora\Cadastro.html" />
     <Content Include="Coperativa\Cadastro\view\Operadora\Editar.html" />
     <Content Include="Coperativa\Cadastro\view\Operadora\Grid.html" />
+    <Content Include="Coperativa\Cadastro\view\Plano\Cadastro.html" />
+    <Content Include="Coperativa\Cadastro\view\Plano\Editar.html" />
+    <Content Include="Coperativa\Cadastro\view\Plano\Grid.html" />
     <Content Include="Coperativa\Cadastro\view\Topo.html" />
     <Content Include="Coperativa\common.js" />
     <Content Include="Coperativa\Login\App\app.js" />

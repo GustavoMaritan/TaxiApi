@@ -4,10 +4,12 @@
     'coperativaControllers',
     'operadoraControllers',
     'adminControllers',
+    'planosControllers',
     'serviceCoperativa',
     'serviceDropDown',
     'serviceOperadora',
     'serviceAdmin',
+    'servicePlanos',
     'directives',
     'routes'
 ]);
