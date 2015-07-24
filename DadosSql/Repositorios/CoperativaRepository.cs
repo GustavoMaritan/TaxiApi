@@ -75,8 +75,40 @@ namespace DadosSql.Repositorios
 
                     obj.Pagamentos = null;
                     obj.Telefones = null;
+                    obj.Plano = null;
+                    obj.TipoCooperativa = null;
 
                     ct.Cooperativa.AddOrUpdate(obj);
+                    ct.SaveChanges();
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw ex;
+                }
+            }
+        }
+
+        public void PutUsuario(Cooperativa obj)
+        {
+            using (var ct = new Contexto())
+            using (var trans = ct.Database.BeginTransaction())
+            {
+                try
+                {
+                    if (obj.Telefones.Any())
+                        new TelefoneRepository().Put(obj.Telefones, obj.Id, ct);
+
+                    var oldCop = ct.Cooperativa.First(x => x.Id == obj.Id);
+                    oldCop.Descricao = obj.Descricao;
+
+                    oldCop.Pagamentos = null;
+                    oldCop.Telefones = null;
+                    oldCop.Plano = null;
+                    oldCop.TipoCooperativa = null;
+
+                    ct.Cooperativa.AddOrUpdate(oldCop);
                     ct.SaveChanges();
                     trans.Commit();
                 }

@@ -38,7 +38,7 @@ namespace TaxiApi.Controllers
         {
             try
             {
-                new CoperativaRepository().Put(usua);
+                new CoperativaRepository().PutUsuario(usua);
                 return Json(new { error = "" });
             }
             catch (Exception ex)
