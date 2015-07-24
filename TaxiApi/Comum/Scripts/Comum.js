@@ -5,6 +5,7 @@
     }
     return angular.fromJson(usua);
 }
+
 $(window).unload(function () {
     localStorage["usuarioId"] = "";
 });
@@ -65,3 +66,54 @@ function validarCNPJ(cnpj) {
 
     return true;
 }
+
+/* Upload Imagem */
+var files;
+$(document).on('change', '#pdffile', function (event) {
+    var a = $(this).val().split('\\');
+    $('#subfile').val(a.length > 0 ? a[a.length - 1] : "");
+
+    var reader = new FileReader();
+    $(reader).load(function (event) {
+        $("#imgPerfil").attr("src", event.target.result);
+    });
+    reader.readAsDataURL(event.target.files[0]);
+    return true;
+});
+$(document).on('submit', '#form', function () {
+    if (files != null && files.length > 0) {
+        if ($('#pdffile').val().lastIndexOf('.png') === -1 && $('#pdffile').val().lastIndexOf('.jpeg') === -1) {
+            toastr.error("Somente imagem png ou jpeg");
+            $('#pdffile').val('');
+            return;
+        }
+        if (window.FormData !== undefined) {
+            var data = new FormData();
+            for (var x = 0; x < files.length; x++) {
+                data.append("file" + x, files[x]);
+            }
+            var caminho = $('#pdffile').data('caminho');
+            $.ajax({
+                type: "POST",
+                url: caminhoApi + 'Upload/UploadFile?id=' + caminho,
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (xhr, status, p3, p4) {
+                    var err = "Error " + " " + status + " " + p3 + " " + p4;
+                    if (xhr.responseText && xhr.responseText[0] == "{")
+                        err = JSON.parse(xhr.responseText).Message;
+                    console.log(err);
+                }
+            });
+        } else {
+            toastr.error("This browser doesn't support HTML5 file uploads!");
+        }
+    }
+});
+$(document).on('change', '#pdffile', function (e) {
+    files = e.target.files;
+});

@@ -75,7 +75,8 @@
                 Nome: "",
                 Email: "",
                 Senha: "",
-                Login:""
+                Login: "",
+                Image: "perfil.jpg"
             };
         };
 
@@ -95,6 +96,15 @@
                 .error(function () {
                     toastr.error('Erro ao enviar dados.');
                 });
+        };
+        
+        $scope.fileNameChanged = function (obj) {
+            if (obj.value != null && obj.value != "") {
+                var imag = obj.value.split("\\");
+                $scope.model.Image = imag[imag.length - 1];
+            } else {
+                $scope.model.Image = null;
+            }
         };
     });
     

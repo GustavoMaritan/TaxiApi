@@ -27,6 +27,10 @@ namespace TaxiApi.Controllers
                     
                     var dataStream = await file.ReadAsStreamAsync();
                     var uploadPath = AppDomain.CurrentDomain.BaseDirectory + @"\Comum\content\" + id + @"\";
+
+                    if (!Directory.Exists(uploadPath))
+                        Directory.CreateDirectory(uploadPath);
+                    
                     var caminhoArquivo = Path.Combine(uploadPath, Path.GetFileName(file.Headers.ContentDisposition.FileName.Replace("\"", string.Empty)));
 
                     using (var streamReader = new MemoryStream())
