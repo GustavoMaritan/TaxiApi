@@ -11,6 +11,24 @@ namespace DadosSql.Repositorios
 {
     public class CoperativaRepository
     {
+        public Cooperativa GetLogin(string login, string senha)
+        {
+            using (var ct = new Contexto())
+            {
+                var a = ct.Cooperativa
+                    .FirstOrDefault(x => x.Login.Equals(login) && x.Senha.Equals(senha));
+
+                if (a == null)
+                    return null;
+               
+                return new Cooperativa
+                {
+                    Id = a.Id,
+                    Descricao = a.Descricao
+                };
+            }
+        }
+
         public List<CoperativaGrid> GetGrid(bool? ativo = null)
         {
             using (var ct = new Contexto())
@@ -117,6 +135,29 @@ namespace DadosSql.Repositorios
                     }
                 }
   
+            }
+        }
+
+        public CooperUsuario GetUsuario(int id)
+        {
+            using (var ct = new Contexto())
+            {
+                var cop = ct.Cooperativa.First(x => x.Id == id);
+
+                return new CooperUsuario
+                {
+                    Id = cop.Id,
+                    Descricao = cop.Descricao,
+                    QtdeTelefones = cop.Plano.QuantidadeMaximaTelefones,
+                    Telefones = cop.Telefones.Select(x => new Telefone
+                    {
+                        Id = x.Id,
+                        Ddd = x.Ddd,
+                        Numero = x.Numero,
+                        Ramal = x.Ramal,
+                        OperadoraId = x.OperadoraId
+                    }).ToList()
+                };
             }
         }
     }

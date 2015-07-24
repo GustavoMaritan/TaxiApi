@@ -152,6 +152,7 @@
     <Compile Include="Controllers\PlanoController.cs" />
     <Compile Include="Controllers\TipoCooperativaController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +208,17 @@
     <Content Include="Comum\Scripts\ng-infinite-scroll.min.js" />
     <Content Include="Comum\Scripts\toastr.min.js" />
     <Content Include="Comum\Scripts\ui-bootstrap-tpls-0.13.0.min.js" />
+    <Content Include="Coperativa\Usuario\App\app.js" />
+    <Content Include="Coperativa\Usuario\App\Config\routes.js" />
+    <Content Include="Coperativa\Usuario\App\Controller\CooperController.js" />
+    <Content Include="Coperativa\Usuario\App\Controller\headerController.js" />
+    <Content Include="Coperativa\Usuario\App\Directives\directives.js" />
+    <Content Include="Coperativa\Usuario\App\Service\cooperService.js" />
+    <Content Include="Coperativa\Usuario\App\Service\dropDownService.js" />
+    <Content Include="Coperativa\Usuario\index.html" />
+    <Content Include="Coperativa\Usuario\view\Cooper\Editar.html" />
+    <Content Include="Coperativa\Usuario\view\MenuLateral.html" />
+    <Content Include="Coperativa\Usuario\view\Topo.html" />
     <Content Include="Coperativa\Cadastro\App\app.js" />
     <Content Include="Coperativa\Cadastro\App\Config\routes.js" />
     <Content Include="Coperativa\Cadastro\App\Controller\CoperativaController.js" />

@@ -50,6 +50,7 @@
     <Compile Include="Contextos\Contexto.cs" />
     <Compile Include="DataModel\Aplicativo\CoperativaApp.cs" />
     <Compile Include="DataModel\Aplicativo\TelefoneApp.cs" />
+    <Compile Include="DataModel\Coperativa\CooperUsuario.cs" />
     <Compile Include="DataModel\Coperativa\CoperativaGrid.cs" />
     <Compile Include="Entities\Administrador.cs" />
     <Compile Include="Entities\Cooperativa.cs" />

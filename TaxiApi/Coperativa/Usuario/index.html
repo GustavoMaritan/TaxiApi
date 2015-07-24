@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html ng-app="coperativa">
+<head lang="en">
+    <title>Cooperativa</title>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link rel="icon" href="../../Comum/content/taxi1.png" />
+    <!-- Css -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="../../Comum/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet">
+    <link href="../../Comum/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../Comum/css/animate.min.css" rel="stylesheet">
+    <link href="../../Comum/css/style.min.css" rel="stylesheet">
+    <link href="../../Comum/css/style-responsive.min.css" rel="stylesheet">
+    <link href="../../Comum/css/theme/default.css" rel="stylesheet" id="theme">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="../../Comum/plugins/dataTable/data-table.css" rel="stylesheet" />
+    <!-- Alert -->
+    <link href="../../Comum/content/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="../../Comum/plugins/alertify/alertify.core.css" rel="stylesheet" />
+    <link href="../../Comum/plugins/alertify/alertify.default.css" rel="stylesheet" />
+    <!-- Css Comum -->
+    <link href="../../Comum/content/css/Comum.css" rel="stylesheet" />
+    <!-- UTIL -->
+    <script src="../../Comum/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="../../Comum/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="../../Comum/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="../../Comum/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../Comum/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../../Comum/js/apps.min.js"></script>
+    <script src="../../Comum/js/dashboard.min.js"></script>
+    <script src="../../Comum/plugins/dataTable/jquery.dataTables.js"></script>
+    <script src="../../Comum/plugins/pace/pace.min.js"></script>
+    <!-- Alert -->
+    <script src="../../Comum/Scripts/toastr.min.js"></script>
+    <script src="../../Comum/plugins/alertify/alertify.min.js"></script>
+    <!-- Comuns -->
+    <script src="../common.js"></script>
+    <script src="../../Comum/Scripts/Comum.js"></script>
+    <!--Angular-->
+    <script src="../../Comum/Scripts/angular.min.js"></script>
+    <script src="../../Comum/Scripts/angular-sanitize.min.js"></script>
+    <script src="../../Comum/Scripts/angular-route.min.js"></script>
+    <script src="../../Comum/Scripts/ng-infinite-scroll.min.js"></script>
+    <script src="../../Comum/Scripts/angular-locale_pt-br.js"></script>
+    <script src="../../Comum/Scripts/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <!-- APP -->
+    <script src="App/app.js"></script>
+    <script src="App/Config/routes.js"></script>
+    <script src="App/Controller/headerController.js"></script>
+    <script src="App/Controller/CooperController.js"></script>
+    <script src="App/Service/cooperService.js"></script>
+    <script src="App/Service/dropDownService.js"></script>
+    <script src="App/Directives/directives.js"></script>
+    <style>
+        .panel {
+            max-width: 900px !important;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="pace-done">
+    <div id="page-loader" class="fade in hide"><span class="spinner"></span></div>
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed in">
+        <div id="header" ng-include="'view/Topo.html'" class="header navbar navbar-fixed-top navbar-inverse"></div>
+        <div id="sidebar" ng-include="'view/MenuLateral.html'" class="sidebar"></div>
+        <div class="sidebar-bg"></div>
+        <div id="content" class="content">
+            <div ng-view></div>
+        </div>
+    </div>
+</body>
+</html>
