@@ -313,7 +313,7 @@
 	function _fnHungarianMap ( o )
 	{
 		var
-			hungarian = 'a aa ai ao as b fn i m o s ',
+			hungarian = 'a Aa ai ao as b fn i m o s ',
 			match,
 			newKey,
 			map = {};

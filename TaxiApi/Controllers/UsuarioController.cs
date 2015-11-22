@@ -6,12 +6,19 @@ using Newtonsoft.Json;
 
 namespace TaxiApi.Controllers
 {
+    [OnStart]
     [RoutePrefix("api/[controller]")]
     public class UsuarioController : ApiController
     {
+        
         [HttpGet]
         public dynamic Get(string login, string senha)
         {
+            var a = ActionContext.Request.Headers
+             .GetType().GetProperty("Authorization");
+
+            var t = a.GetValue(ActionContext.Request.Headers);
+
             var repository = new CoperativaRepository();
 
             var admin = repository.GetLogin(login, senha);
